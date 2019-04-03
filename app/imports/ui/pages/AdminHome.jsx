@@ -12,7 +12,8 @@ import {
   Grid,
   List,
   Card,
-  Table
+  Table,
+  Divider
 } from 'semantic-ui-react';
 
 export default class AdminHome extends React.Component{
@@ -25,6 +26,21 @@ export default class AdminHome extends React.Component{
           <Menu.Item>Study Sesh's</Menu.Item>
           <Menu.Item>Calendar</Menu.Item>
         </Menu>
+        <Grid centered columns={3}>
+            <Grid.Column textAlign="center">
+              <Icon name="user" size="huge"/>
+              <Header as="h2">Manage Admin Profile</Header>
+            </Grid.Column>
+            <Grid.Column textAlign="center">
+              <Icon name="pencil" size="huge" />
+              <Header as="h2">Manage Study Sesh's</Header>
+            </Grid.Column>
+            <Grid.Column textAlign="center">
+              <Icon name="users" size="huge" />
+              <Header as="h2">Manage Users</Header>
+            </Grid.Column>
+          </Grid>
+          <br /><Divider />
             <Container>
             <Table>
               <Table.Header>
@@ -32,19 +48,18 @@ export default class AdminHome extends React.Component{
                   <Table.HeaderCell>Current Study Sesh's Planned</Table.HeaderCell>
                   <Table.HeaderCell>Tutors</Table.HeaderCell>
                   <Table.HeaderCell>Tutees</Table.HeaderCell>
-                  <Table.HeaderCell>Total User Base</Table.HeaderCell>
                 </Table.Row>
               </Table.Header>
               <Table.Body>
-                <Table.Row>
-                  <Table.Cell>20</Table.Cell>
-                  <Table.Cell>10</Table.Cell>
-                  <Table.Cell>50</Table.Cell>
-                  <Table.Cell>60</Table.Cell>
-                </Table.Row>
+                
                 <Table.Row>
                   <Table.Cell>4pm Keller</Table.Cell>
                   <Table.Cell>John Smith</Table.Cell>
+                  <Table.Cell>Jane Doe</Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell>1pm Hamilton</Table.Cell>
+                  <Table.Cell>Eric Smith</Table.Cell>
                   <Table.Cell>Jane Doe</Table.Cell>
                 </Table.Row>
                 <Table.Row>
@@ -60,11 +75,6 @@ export default class AdminHome extends React.Component{
               </Table.Body>
             </Table>
             </Container>
-            <Menu widths={3} centered>
-              <Menu.Item>Manage Admin Profile</Menu.Item>
-              <Menu.Item>Manage Study Sesh's</Menu.Item>
-              <Menu.Item>Manage Users</Menu.Item>
-            </Menu>
       </div>
     );
   }
