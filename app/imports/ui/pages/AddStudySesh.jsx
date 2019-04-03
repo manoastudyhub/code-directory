@@ -52,7 +52,7 @@ class AddStudySesh extends React.Component {
                 <TextField name='date'/>
                 <TextField name='location'/>
                 <LongTextField name='description'/>
-                <SelectField name='condition'/>
+                <SelectField name='type'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
                 <HiddenField name='owner' value='fakeuser@foo.com'/>

@@ -13,7 +13,7 @@ const SessionSchema = new SimpleSchema({
   location: String,
   owner: String,
   description: String,
-  condition: {
+  type: {
     type: String,
     allowedValues: ['1 on 1', 'TA', 'group'],
     defaultValue: 'group',
