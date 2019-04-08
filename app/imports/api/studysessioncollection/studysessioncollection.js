@@ -11,8 +11,9 @@ const StudySchema = new SimpleSchema({
   date: Date,
   owner: String,
   Description: String,
-  type: String,
+  class: String,
   location: String,
+  createdAt: Date,
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */
