@@ -6,12 +6,7 @@ export default class UserHome extends React.Component {
   render() {
     return (
       <div>
-        <Menu>
-          <Menu.Item>Profile</Menu.Item>
-          <Menu.Item>Create Study Session</Menu.Item>
-          <Menu.Item>Study Sesssions </Menu.Item>
-          <Menu.Item>Calendar</Menu.Item>
-        </Menu>
+        
           <Grid centered columns={3}>
             <Grid.Column textAlign="center">
               <Icon name="user" size="huge"/>
