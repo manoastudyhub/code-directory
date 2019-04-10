@@ -34,9 +34,9 @@ class AddStudySesh extends React.Component {
 
   /** On submit, insert the data. */
   submit(data) {
-    const { firstName, lastName, date, location, description } = data;
+    const { firstName, lastName, date, location, description, type } = data;
     const owner = Meteor.user().username;
-    Sessions.insert({ firstName, lastName, date, location, description, owner }, this.insertCallback);
+    Sessions.insert({ firstName, lastName, date, location, description, type, owner }, this.insertCallback);
   }
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
