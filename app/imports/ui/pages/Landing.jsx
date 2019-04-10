@@ -10,7 +10,7 @@ class Landing extends React.Component {
             <Grid.Column textAlign={'center'}>
               <Header as="h1" inverted>Welcome Students and Tutors</Header>
               <Header as="h3" inverted>Connect with tutors or other students for study sessions.
-                Login to plan your next study session today!</Header>
+                Login to create or join a study session!</Header>
             </Grid.Column>
           </Grid>
         </div>
