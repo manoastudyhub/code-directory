@@ -1,8 +1,15 @@
+@import url(https://fonts.googleapis.com/css?family=Averia+Serif+Libre);
+
 .manoastudyhub-landing-background {
-  background: url('/images/background.jpg') no-repeat center center fixed;
+  background-color: #97C8EB;
   background-size: cover;
-  height: 500px;
+  height: 700px;
   color: white;
   vertical-align: middle;
-  padding-top: 100px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+h3, .styledHeader{
+  font-family: 'Averia Serif Libre';
 }
