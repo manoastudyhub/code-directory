@@ -31,23 +31,22 @@ class Landing extends React.Component {
                       <Grid container stackable centered columns={3}>
                         <Grid.Column textAlign={'center'}>
                           <Icon size="huge" name="book" inverted/>
-                          <Header as="h1" inverted>Study Sessions</Header>
+                          <Header as="h2" inverted>Study Session</Header>
                           <Header as="h3" inverted>Create your own study session for any UH class
                             or join an already made one.</Header>
                         </Grid.Column>
                         <Grid.Column textAlign={'center'}>
                           <Icon size="huge" name="user circle" inverted/>
-                          <Header as="h1" inverted>User Page</Header>
+                          <Header as="h2" inverted>User Page</Header>
                           <Header as="h3" inverted>View your upcoming study sessions
                             as well as the tutors you have worked with previously.</Header>
                         </Grid.Column>
                         <Grid.Column textAlign={'center'}>
                           <Icon size="huge" name="calendar alternate outline" inverted/>
-                          <Header as="h1" inverted>Calendar</Header>
+                          <Header as="h2" inverted>Calendar</Header>
                           <Header as="h3" inverted>Use our calendar feature to
                             monitor past and future study sessions.</Header>
                         </Grid.Column>
-
                       </Grid>
                     </Grid.Column>
                   </Grid.Row>
