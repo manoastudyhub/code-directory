@@ -2,5 +2,18 @@
   "defaultAccounts": [
     { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
     { "email": "john@foo.com", "password": "changeme" }
+  ],
+
+  "defaultStudents": [
+    {
+      "firstName": "John",
+      "lastName": "Foo",
+      "username": "john@foo.com",
+      "classStanding": "Junior",
+      "image": "https://react.semantic-ui.com/images/avatar/large/steve.jpg",
+      "major": "Computer Science",
+      "subjects": "Software Engineering",
+      "Description": "My name is John"
+    }
   ]
 }
