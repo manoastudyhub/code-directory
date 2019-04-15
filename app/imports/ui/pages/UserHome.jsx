@@ -1,17 +1,11 @@
 import React from 'react';
 import 'semantic-ui-css/semantic.min.css';
-import { Container, Header, Menu, Image, Icon, Button, Grid, List, Divider } from 'semantic-ui-react';
+import { Container, Header, Image, Icon, Button, Grid, List, Divider } from 'semantic-ui-react';
 
 export default class UserHome extends React.Component {
   render() {
     return (
       <div>
-        <Menu>
-          <Menu.Item>Profile</Menu.Item>
-          <Menu.Item>Create Study Session</Menu.Item>
-          <Menu.Item>Study Sesssions </Menu.Item>
-          <Menu.Item>Calendar</Menu.Item>
-        </Menu>
           <Grid centered columns={3}>
             <Grid.Column textAlign="center">
               <Icon name="user" size="huge"/>
