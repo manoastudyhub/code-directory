@@ -9,6 +9,7 @@ const Students = new Mongo.Collection('Students');
 const StudentSchema = new SimpleSchema({
   firstName: String,
   lastName: String,
+  username: String,
   classStanding: String,
   image: String,
   major: String,
