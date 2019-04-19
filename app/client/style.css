@@ -13,3 +13,13 @@
 h3, .styledHeader{
   font-family: 'Averia Serif Libre';
 }
+
+.manoastudyhub-calendar-background {
+  background-color: #97C8EB;
+  background-size: cover;
+  height: 1000px;
+  color: white;
+  vertical-align: middle;
+  padding-left: 50px;
+  padding-right: 50px;
+}
