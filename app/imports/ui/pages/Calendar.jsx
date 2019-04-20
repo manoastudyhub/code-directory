@@ -3,6 +3,8 @@ import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import { Grid } from 'semantic-ui-react';
 
+/** Uses FullCalendar*/
+
 /** A simple static component to render some text for the landing page. */
 class Calendar extends React.Component {
   render() {
