@@ -14,7 +14,7 @@ import { Container, Header, Menu, Image, Icon, Button, Grid, List, Divider, Item
 
 class UserHome extends React.Component {
   /*Test Data*/
-  /*tutors = [{
+   myStudents=[{
     firstName: 'Philip', lastName: 'Johnson', classStanding: 'Junior',
     image: 'https://philipmjohnson.github.io/images/philip2.jpeg',
     major: 'Computer Science', subjects: 'MATH, BIO',
@@ -38,7 +38,7 @@ class UserHome extends React.Component {
           '"What do you call a Martian who drinks beer? An ale-ien!".',
     },
   ];
-  sessions = [{
+  mySessions = [{
       firstName: 'Max',
       lastName: 'Deyo',
       date: '4/25/19',
@@ -56,13 +56,14 @@ class UserHome extends React.Component {
       description: 'Math',
       type: 'group',
     },
-  ];*/
-  render() {
+  ];
+  /*render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
-  }
-  renderPage() {
+  }*/
+  render() {
     return (
       <div>
+          
           <Grid centered columns={3}>
             <Grid.Column textAlign="center">
               <Item as={NavLink} exact to='/profile'>
@@ -87,7 +88,7 @@ class UserHome extends React.Component {
           <Container centered>
           <Header as="h2">Upcoming Study Sessions</Header>
           <List divided verticalAlign='middle'>
-            {this.sessions.map((session)=>
+            {this.mySessions.map((session)=>
               <List.Item>
                 <List.Content floated='right'>
                   <Button>View Session</Button>
@@ -97,18 +98,14 @@ class UserHome extends React.Component {
               </List.Item>
             )}
           </List>
-          <Header as="h2">My Tutors</Header>
-          <List divided verticalAlign='middle'>
-            {this.tutors.map((tutor)=>
-              <List.Item>
-                <List.Content floated='right'>
-                  <Button>Contact</Button>
-                </List.Content>
-                <Image avatar src={tutor.image} size='tiny'/>
-                <List.Content>{tutor.firstName + ' ' + tutor.lastName}</List.Content>
-              </List.Item>
-            )}
-          </List>
+          <Header as="h2">Other Students</Header>
+          <Grid columns={3}>
+              {this.myStudents.map((student)=>
+                <Grid.Column>
+                  <Student student={student} notes={[]} key={student._id} />
+                </Grid.Column>
+              )}
+          </Grid>
           </Container>
       </div>
     );
@@ -118,19 +115,18 @@ class UserHome extends React.Component {
 
 UserHome.propTypes = {
   sessions: PropTypes.array.isRequired,
-  tutors: PropTypes.array.isRequired,
+  students: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Stuff documents.
-  const sessionSubscription = Meteor.subscribe('Sessions');
-  const tutorSubscription = Meteor.subscribe('Tutors');
+  const Subscription = Meteor.subscribe('Students');
 
   return {
     sessions: Sessions.find({}).fetch(),
-    tutors: Tutors.find({}).fetch(),
-    ready: sessionSubscription.ready(),
+    students: Students.find({}).fetch(),
+    ready: Subscription.ready(),
   };
 })(UserHome);

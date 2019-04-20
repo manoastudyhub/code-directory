@@ -2,5 +2,43 @@
   "defaultAccounts": [
     { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
     { "email": "john@foo.com", "password": "changeme" }
+  ],
+  "defaultStudents": [
+  	{
+	  "firstName": "Kristy",
+	  "lastName": "Johnson",
+	  "classStanding": "Junior",
+	  "image": "https://semantic-ui.com/images/avatar2/large/kristy.png",
+	  "major": "Biology",
+	  "subjects": "Math, Biology, Chemistry",
+	  "description": "Looking for help with Biology."
+	},
+	{
+	  "firstName": "Matt",
+	  "lastName": "Wilson",
+	  "classStanding": "Senior",
+	  "image": "https://semantic-ui.com/images/avatar2/large/matthew.png",
+	  "major": "Computer Science",
+	  "subjects": "Math, Software Engineering",
+	  "description": "Graduating this Spring 2019."
+	},
+	{
+	  "firstName": "Steve",
+	  "lastName": "Jobs",
+	  "classStanding": "Freshman",
+	  "image": "https://semantic-ui.com/images/avatar/large/steve.jpg",
+	  "major": "Computer Science",
+	  "subjects": "Math, Software Engineering, Chemistry",
+	  "description": "Starting a tech company."
+	},
+	{
+	  "firstName": "Molly",
+	  "lastName": "Miller",
+	  "classStanding": "Freshman",
+	  "image": "https://semantic-ui.com/images/avatar2/large/molly.png",
+	  "major": "Chemistry",
+	  "subjects": "Chemistry, Biology",
+	  "description": "Abc"
+	}
   ]
 }
