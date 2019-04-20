@@ -10,7 +10,7 @@ import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import 'semantic-ui-css/semantic.min.css';
 import { withRouter, NavLink } from 'react-router-dom';
-import { Container, Header, Menu, Image, Icon, Button, Grid, List, Divider, Item, Loader } from 'semantic-ui-react';
+import { Container, Header, Menu, Image, Icon, Button, Grid, List, Divider, Item, Loader, Modal } from 'semantic-ui-react';
 
 class UserHome extends React.Component {
   /*Test Data*/
@@ -63,7 +63,6 @@ class UserHome extends React.Component {
   render() {
     return (
       <div>
-          
           <Grid centered columns={3}>
             <Grid.Column textAlign="center">
               <Item as={NavLink} exact to='/profile'>
@@ -91,7 +90,11 @@ class UserHome extends React.Component {
             {this.mySessions.map((session)=>
               <List.Item>
                 <List.Content floated='right'>
-                  <Button>View Session</Button>
+                  <Modal size="mini" trigger={<Button>View Session</Button>} closeIcon>
+                    <Modal.Content>
+                      <StudySession session={session} centered/>
+                    </Modal.Content>
+                  </Modal>
                 </List.Content>
                 <List.Content>{'Location: ' + session.location}</List.Content>
                 <List.Content>{'Date: ' + session.date}</List.Content>
@@ -102,7 +105,7 @@ class UserHome extends React.Component {
           <Grid columns={3}>
               {this.myStudents.map((student)=>
                 <Grid.Column>
-                  <Student student={student} notes={[]} key={student._id} />
+                  <Student student={student} key={student._id} />
                 </Grid.Column>
               )}
           </Grid>
