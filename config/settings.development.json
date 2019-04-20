@@ -1,6 +1,45 @@
 {
   "defaultAccounts": [
-    { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
-    { "email": "john@foo.com", "password": "changeme" }
+    {
+      "email": "admin@foo.com",
+      "password": "changeme",
+      "role": "admin"
+    },
+    {
+      "email": "john@foo.com",
+      "password": "changeme"
+    }
+  ],
+  "defaultSessions": [
+    {
+      "firstName": "Bailey",
+      "lastName": "Namahoe",
+      "createdBy": "John Doe",
+      "date": "4/5/19",
+      "location": "Hamilton Library Study Room 301",
+      "owner": "john@foo.com",
+      "description": "A study group for those in the Biol 375.",
+      "course": "BIOL"
+    },
+    {
+      "firstName": "Tyler",
+      "lastName": "Chinen",
+      "createdBy": "John Doe",
+      "date": "4/9/19",
+      "location": "Campus Center",
+      "owner": "john@foo.com",
+      "description": "A study group for those in the Biol 340 class to study for the final.",
+      "course": "BIOL"
+    },
+    {
+      "firstName": "John",
+      "lastName": "Smith",
+      "createdBy": "John Doe",
+      "date": "4/17/19",
+      "location": "Paradise Palms",
+      "owner": "admin@foo.com",
+      "description": "A study session request for someone who can help with writing an essay for Linguistics 102.",
+      "course": "LING"
+    }
   ]
 }
