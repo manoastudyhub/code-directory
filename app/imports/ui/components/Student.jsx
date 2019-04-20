@@ -11,6 +11,7 @@ class Student extends React.Component {
           <Card.Content>
             <Image floated='right' size='mini' src={this.props.student.image} />
             <Card.Header>{this.props.student.firstName} {this.props.student.lastName}</Card.Header>
+            <Card.Meta>{this.props.student.username}</Card.Meta>
             <Card.Meta>{this.props.student.classStanding}</Card.Meta>
             <Card.Meta>{this.props.student.major}</Card.Meta>
             <Card.Description>
