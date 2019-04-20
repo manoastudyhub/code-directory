@@ -9,15 +9,12 @@ const Sessions = new Mongo.Collection('Sessions');
 const SessionSchema = new SimpleSchema({
   firstName: String,
   lastName: String,
+  createdBy: String,
   date: String,
   location: String,
   owner: String,
   description: String,
-  type: {
-    type: String,
-    allowedValues: ['1 on 1', 'TA', 'group'],
-    defaultValue: 'group',
-  },
+  course: String,
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */

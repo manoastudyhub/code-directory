@@ -7,12 +7,13 @@ import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
-import ListStuff from '../pages/ListStuff';
+import ListStudySessions from '../pages/ListStudySessions';
 import ListStuffAdmin from '../pages/ListStuffAdmin';
 import UserPage from '../pages/UserHome';
 import Profile from '../pages/UserProfile';
-import AddSession from '../pages/AddStudySesh';
-import StudySession from '../pages/ListStudySessions';
+import AddStudySesh from '../pages/AddStudySesh';
+import EditStudy from '../pages/EditStudy';
+import StudySession from '../components/StudySession';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
@@ -29,11 +30,12 @@ class App extends React.Component {
               <Route exact path="/" component={Landing}/>
               <Route path="/signin" component={Signin}/>
               <Route path="/signup" component={Signup}/>
-              <ProtectedRoute path="/list" component={ListStuff}/>
+              <ProtectedRoute path="/studylist" component={ListStudySessions}/>
               <ProtectedRoute path="/userPage" component={UserPage}/>
               <ProtectedRoute path="/profile" component={Profile}/>
-              <ProtectedRoute path="/studyList" component={StudySession}/>
-              <ProtectedRoute path="/add" component={AddSession}/>
+              <ProtectedRoute path="/studysession" component={StudySession}/>
+              <ProtectedRoute path="/add" component={AddStudySesh}/>
+              <ProtectedRoute path="/edit/:_id" component={EditStudy}/>
               <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <Route component={NotFound}/>

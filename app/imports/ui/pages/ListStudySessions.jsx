@@ -4,26 +4,26 @@ import { Container, Header, Loader, Card } from 'semantic-ui-react';
 import { Stuffs } from '/imports/api/stuff/stuff';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import Session from '/imports/ui/components/StudySession';
+import StudySession from '/imports/ui/components/StudySession';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListStudySessions extends React.Component {
 
   sessions = [{
-    firstName: 'Bailey', lastName: 'Namahoe', date: '4/5/19', location: 'Hamilton Library Study Room 301',
-    owner: 'Bailey Namahoe', description: 'A study group for those in the Biol 375.',
-    type: 'group',
+    firstName: 'Bailey', lastName: 'Namahoe', createdBy: 'John Doe', date: '4/5/19',
+    location: 'Hamilton Library Study Room 301', owner: 'Bailey Namahoe',
+    description: 'A study group for those in the Biol 375.', course: 'BIOL', type: 'group',
   },
     {
-      firstName: 'Tyler', lastName: 'Chinen', date: '4/9/19', location: 'Campus Center',
+      firstName: 'Tyler', lastName: 'Chinen', createdBy: 'John Doe', date: '4/9/19', location: 'Campus Center',
       owner: 'Tyler Chinen', description: 'A study group for those in the Biol 340 class to study for the final.',
-      type: 'group',
+      course: 'BIOL', type: 'group',
     },
     {
-      firstName: 'John', lastName: 'Smith', date: '4/17/19', location: 'Paradise Palms',
+      firstName: 'John', lastName: 'Smith', createdBy: 'John Doe', date: '4/17/19', location: 'Paradise Palms',
       owner: 'John Smith', description: 'A study session request for someone who can help with writing an essay for ' +
           'Linguistics 102.',
-      type: '1 on 1',
+      course: 'LING', type: '1 on 1',
     },
   ];
 
@@ -36,9 +36,9 @@ class ListStudySessions extends React.Component {
   renderPage() {
     return (
         <Container>
-          <Header as="h2" textAlign="center">List Study Seshs</Header>
+          <Header as="h2" textAlign="center">List Study Sessions</Header>
           <Card.Group>
-            {this.sessions.map((session, index) => <Session key={index} session={session} />)}
+            {this.sessions.map((session, index) => <StudySession key={index} session={session} />)}
           </Card.Group>
         </Container>
     );

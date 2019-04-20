@@ -4,7 +4,6 @@ import { Grid, Segment, Header } from 'semantic-ui-react';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
 import LongTextField from 'uniforms-semantic/LongTextField';
-import SelectField from 'uniforms-semantic/SelectField';
 import SubmitField from 'uniforms-semantic/SubmitField';
 import HiddenField from 'uniforms-semantic/HiddenField';
 import ErrorsField from 'uniforms-semantic/ErrorsField';
@@ -18,6 +17,7 @@ class AddStudySesh extends React.Component {
   constructor(props) {
     super(props);
     this.submit = this.submit.bind(this);
+    this.render = this.render.bind(this);
     this.insertCallback = this.insertCallback.bind(this);
     this.formRef = null;
   }
@@ -34,9 +34,11 @@ class AddStudySesh extends React.Component {
 
   /** On submit, insert the data. */
   submit(data) {
-    const { firstName, lastName, date, location, description, type } = data;
+    const { firstName, lastName, createdBy, date, location, description, course } = data;
     const owner = Meteor.user().username;
-    Sessions.insert({ firstName, lastName, date, location, description, type, owner }, this.insertCallback);
+    Sessions.insert({
+      firstName, lastName, createdBy, date, location, description, course, owner,
+    }, this.insertCallback);
   }
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
@@ -44,15 +46,16 @@ class AddStudySesh extends React.Component {
     return (
         <Grid container centered>
           <Grid.Column>
-            <Header as="h2" textAlign="center">Add Study Sesh</Header>
+            <Header as="h2" textAlign="center">Add Study Session</Header>
             <AutoForm ref={(ref) => { this.formRef = ref; }} schema={SessionSchema} onSubmit={this.submit}>
               <Segment>
                 <TextField name='firstName'/>
                 <TextField name='lastName'/>
+                <TextField name='createdBy'/>
                 <TextField name='date'/>
                 <TextField name='location'/>
                 <LongTextField name='description'/>
-                <SelectField name='type'/>
+                <TextField name='course'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
                 <HiddenField name='owner' value='fakeuser@foo.com'/>
