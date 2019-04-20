@@ -26,7 +26,25 @@ class UserProfile extends React.Component {
           </Grid.Row>
           <Grid.Row>
             <Grid.Column width={8}>
-
+              <h2>Major: {this.props.student.major}</h2>
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row>
+            <Grid.Column width={8}>
+              <h2>Class Standing: {this.props.student.classStanding}</h2>
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row>
+            <Grid.Column width={8}>
+              <h2>Subjects: {this.props.student.subjects}</h2>
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row>
+            <Grid.Column width={8}>
+              <h2>Description</h2>
+              <div>
+                {this.props.student.description}
+              </div>
             </Grid.Column>
           </Grid.Row>
         </Grid>
