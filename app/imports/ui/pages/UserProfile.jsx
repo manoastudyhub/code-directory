@@ -1,10 +1,9 @@
 import React from 'react';
-import { Students } from '../../api/student/student';
 import { Grid, Image, Loader } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
-
+import { Students } from '../../api/student/student';
 
 /** A simple static component to render some text for the landing page. */
 class UserProfile extends React.Component {
