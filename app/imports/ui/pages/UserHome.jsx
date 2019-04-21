@@ -126,7 +126,7 @@ UserHome.propTypes = {
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Stuff documents.
-  const subscription = Meteor.subscribe('Students');
+  const subscription = Meteor.subscribe('Sessions');
   return {
     students: Students.find({}).fetch(),
     sessions: Sessions.find({}).fetch(),
