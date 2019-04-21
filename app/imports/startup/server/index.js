@@ -3,3 +3,4 @@ import './stuff.js';
 import './tutor.js';
 import './session.js';
 import './student';
+import './user.js';
