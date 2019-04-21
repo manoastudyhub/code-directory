@@ -87,7 +87,8 @@ class UserHome extends React.Component {
           <Container centered>
           <Header as="h2">Upcoming Study Sessions</Header>
           <List divided verticalAlign='middle'>
-            {this.mySessions.map((session)=>
+          {this.props.sessions.map((session, index) => <StudySession key={index} session={session} />)}
+            {/*this.props.sessions.map((session)=>
               <List.Item>
                 <List.Content floated='right'>
                   <Modal size="mini" trigger={<Button>View Session</Button>} closeIcon>
@@ -99,13 +100,13 @@ class UserHome extends React.Component {
                 <List.Content>{'Location: ' + session.location}</List.Content>
                 <List.Content>{'Date: ' + session.date}</List.Content>
               </List.Item>
-            )}
+            )*/}
           </List>
           <Header as="h2">Other Students</Header>
           <Grid columns={3}>
-              {this.myStudents.map((student)=>
+              {this.props.students.map((student, index)=>
                 <Grid.Column>
-                  <Student student={student} key={student._id} />
+                  <Student student={student} key={index} notes={index} />
                 </Grid.Column>
               )}
           </Grid>
@@ -117,19 +118,18 @@ class UserHome extends React.Component {
 
 
 UserHome.propTypes = {
-  sessions: PropTypes.array.isRequired,
   students: PropTypes.array.isRequired,
+  sessions: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Stuff documents.
-  const Subscription = Meteor.subscribe('Students');
-
+  const subscription = Meteor.subscribe('Students');
   return {
-    sessions: Sessions.find({}).fetch(),
     students: Students.find({}).fetch(),
-    ready: Subscription.ready(),
+    sessions: Sessions.find({}).fetch(),
+    ready: subscription.ready(),
   };
 })(UserHome);

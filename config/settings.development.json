@@ -4,47 +4,17 @@
     { "email": "john@foo.com", "password": "changeme" }
   ],
   "defaultStudents": [
-  	{
-	  "firstName": "Kristy",
-	  "lastName": "Johnson",
-      "username": "kristy",
-	  "classStanding": "Junior",
-	  "image": "https://semantic-ui.com/images/avatar2/large/kristy.png",
-	  "major": "Biology",
-	  "subjects": "Math, Biology, Chemistry",
-	  "description": "Looking for help with Biology."
-	},
-	{
-	  "firstName": "Matt",
-	  "lastName": "Wilson",
-    "username": "matt",
-	  "classStanding": "Senior",
-	  "image": "https://semantic-ui.com/images/avatar2/large/matthew.png",
-	  "major": "Computer Science",
-	  "subjects": "Math, Software Engineering",
-	  "description": "Graduating this Spring 2019."
-	},
-	{
-	  "firstName": "Steve",
-	  "lastName": "Jobs",
-    "username": "steve",
-	  "classStanding": "Freshman",
-	  "image": "https://semantic-ui.com/images/avatar/large/steve.jpg",
-	  "major": "Computer Science",
-	  "subjects": "Math, Software Engineering, Chemistry",
-	  "description": "Starting a tech company."
-	},
-	{
-	  "firstName": "Molly",
-	  "lastName": "Miller",
-    "username": "molly",
-	  "classStanding": "Freshman",
-	  "image": "https://semantic-ui.com/images/avatar2/large/molly.png",
-	  "major": "Chemistry",
-	  "subjects": "Chemistry, Biology",
-	  "description": "Abc"
-	}
-],
+    {
+      "firstName": "John",
+      "lastName": "Foo",
+      "username": "john@foo.com",
+      "classStanding": "Junior",
+      "image": "https://react.semantic-ui.com/images/avatar/large/steve.jpg",
+      "major": "Computer Science",
+      "subjects": "Software Engineering",
+      "description": "My name is John"
+    }
+  ],
   "defaultSessions": [
     {
       "firstName": "Bailey",

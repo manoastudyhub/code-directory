@@ -20,7 +20,7 @@ if (Students.find().count() === 0) {
 Meteor.publish('Students', function publish() {
   if (this.userId) {
     const username = Meteor.users.findOne(this.userId).username;
-    return Students.find({ owner: username });
+    return Students.find({ username: username });
   }
   return this.ready();
 });
