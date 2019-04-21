@@ -26,7 +26,7 @@ Meteor.publish('Students', function publish() {
 });
 
 /** This subscription publishes all documents regardless of user, but only if the logged in user is the Admin. */
-Meteor.publish( 'StudentsAdmin', function publish() {
+Meteor.publish('StudentsAdmin', function publish() {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
     return Students.find();
   }

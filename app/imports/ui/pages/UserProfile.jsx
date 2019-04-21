@@ -1,9 +1,10 @@
 import React from 'react';
-import { Students } from '../../api/student/student';
-import { Grid, Image, Loader } from 'semantic-ui-react';
+import { Meteor } from 'meteor/meteor';
+import { Container, Loader } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
-import { Meteor } from 'meteor/meteor';
+import { Students } from '../../api/student/student';
+import Profile from '/imports/ui/components/Profile';
 
 
 /** A simple static component to render some text for the landing page. */
@@ -15,46 +16,16 @@ class UserProfile extends React.Component {
 
   renderPage() {
     return (
-        <Grid verticalAlign='middle' textAlign='center' container>
-          <Grid.Row>
-            <Grid.Column width={8}>
-              <h1>{this.props.student.firstName}{this.props.student.lastName}</h1>
-            </Grid.Column>
-            <Grid.Column width={4}>
-              <Image size='small' square src={this.props.student.image}/>
-            </Grid.Column>
-          </Grid.Row>
-          <Grid.Row>
-            <Grid.Column width={8}>
-              <h2>Major: {this.props.student.major}</h2>
-            </Grid.Column>
-          </Grid.Row>
-          <Grid.Row>
-            <Grid.Column width={8}>
-              <h2>Class Standing: {this.props.student.classStanding}</h2>
-            </Grid.Column>
-          </Grid.Row>
-          <Grid.Row>
-            <Grid.Column width={8}>
-              <h2>Subjects: {this.props.student.subjects}</h2>
-            </Grid.Column>
-          </Grid.Row>
-          <Grid.Row>
-            <Grid.Column width={8}>
-              <h2>Description</h2>
-              <div>
-                {this.props.student.description}
-              </div>
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
+        <Container>
+          {this.props.students.map((student, index) => <Profile key={index} student={student}/>)}
+        </Container>
     );
   }
 }
 
 /** Require an array of Student documents in the props. */
 UserProfile.propTypes = {
-  student: PropTypes.array.isRequired,
+  students: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -63,7 +34,7 @@ export default withTracker(() => {
   // Get access to Student documents.
   const subscription = Meteor.subscribe('Students');
   return {
-    student: Students.find({}).fetch(),
+    students: Students.find({}).fetch(),
     ready: (subscription.ready()),
   };
 })(UserProfile);

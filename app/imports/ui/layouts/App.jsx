@@ -10,13 +10,14 @@ import Landing from '../pages/Landing';
 import ListStuff from '../pages/ListStuff';
 import ListStuffAdmin from '../pages/ListStuffAdmin';
 import UserPage from '../pages/UserHome';
-import Profile from '../pages/UserProfile';
+import UserProfile from '../pages/UserProfile';
 import AddSession from '../pages/AddStudySesh';
 import StudySession from '../pages/ListStudySessions';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
+
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -31,7 +32,7 @@ class App extends React.Component {
               <Route path="/signup" component={Signup}/>
               <ProtectedRoute path="/list" component={ListStuff}/>
               <ProtectedRoute path="/userPage" component={UserPage}/>
-              <ProtectedRoute path="/profile" component={Profile}/>
+              <ProtectedRoute path="/userProfile" component={UserProfile}/>
               <ProtectedRoute path="/studyList" component={StudySession}/>
               <ProtectedRoute path="/add" component={AddSession}/>
               <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>

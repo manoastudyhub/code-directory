@@ -13,7 +13,7 @@
       "image": "https://react.semantic-ui.com/images/avatar/large/steve.jpg",
       "major": "Computer Science",
       "subjects": "Software Engineering",
-      "Description": "My name is John"
+      "description": "My name is John"
     }
   ]
 }
