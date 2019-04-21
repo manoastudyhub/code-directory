@@ -7,17 +7,17 @@ import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
-import ListStudySessions from '../pages/ListStudySessions';
+import ListStuff from '../pages/ListStuff';
 import ListStuffAdmin from '../pages/ListStuffAdmin';
 import UserPage from '../pages/UserHome';
-import Profile from '../pages/UserProfile';
-import AddStudySesh from '../pages/AddStudySesh';
-import EditStudy from '../pages/EditStudy';
-import StudySession from '../components/StudySession';
+import UserProfile from '../pages/UserProfile';
+import AddSession from '../pages/AddStudySesh';
+import StudySession from '../pages/ListStudySessions';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
+
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -30,12 +30,11 @@ class App extends React.Component {
               <Route exact path="/" component={Landing}/>
               <Route path="/signin" component={Signin}/>
               <Route path="/signup" component={Signup}/>
-              <ProtectedRoute path="/studylist" component={ListStudySessions}/>
+              <ProtectedRoute path="/list" component={ListStuff}/>
               <ProtectedRoute path="/userPage" component={UserPage}/>
-              <ProtectedRoute path="/profile" component={Profile}/>
-              <ProtectedRoute path="/studysession" component={StudySession}/>
-              <ProtectedRoute path="/add" component={AddStudySesh}/>
-              <ProtectedRoute path="/edit/:_id" component={EditStudy}/>
+              <ProtectedRoute path="/userProfile" component={UserProfile}/>
+              <ProtectedRoute path="/studyList" component={StudySession}/>
+              <ProtectedRoute path="/add" component={AddSession}/>
               <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <Route component={NotFound}/>
