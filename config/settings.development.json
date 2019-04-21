@@ -7,6 +7,7 @@
   	{
 	  "firstName": "Kristy",
 	  "lastName": "Johnson",
+      "username": "kristy",
 	  "classStanding": "Junior",
 	  "image": "https://semantic-ui.com/images/avatar2/large/kristy.png",
 	  "major": "Biology",
@@ -16,6 +17,7 @@
 	{
 	  "firstName": "Matt",
 	  "lastName": "Wilson",
+    "username": "matt",
 	  "classStanding": "Senior",
 	  "image": "https://semantic-ui.com/images/avatar2/large/matthew.png",
 	  "major": "Computer Science",
@@ -25,6 +27,7 @@
 	{
 	  "firstName": "Steve",
 	  "lastName": "Jobs",
+    "username": "steve",
 	  "classStanding": "Freshman",
 	  "image": "https://semantic-ui.com/images/avatar/large/steve.jpg",
 	  "major": "Computer Science",
@@ -34,6 +37,7 @@
 	{
 	  "firstName": "Molly",
 	  "lastName": "Miller",
+    "username": "molly",
 	  "classStanding": "Freshman",
 	  "image": "https://semantic-ui.com/images/avatar2/large/molly.png",
 	  "major": "Chemistry",
