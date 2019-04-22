@@ -9,6 +9,8 @@ import '@fullcalendar/core/main.css';
 import '@fullcalendar/daygrid/main.css';
 import '@fullcalendar/timegrid/main.css';
 
+/** Uses FullCalendar and based on https://codesandbox.io/s/2z6wp2jozn */
+
 export default class DemoApp extends React.Component {
   calendarComponentRef = React.createRef();
 
@@ -25,7 +27,6 @@ export default class DemoApp extends React.Component {
         <div className="demo-app">
           <div className="demo-app-top">
             <button onClick={this.toggleWeekends}>toggle weekends</button>&nbsp;
-            <button onClick={this.gotoPast}>go to a date in the past</button>
             &nbsp; (also, click a date/time to add an event)
           </div>
           <div className="demo-app-calendar">
@@ -34,7 +35,7 @@ export default class DemoApp extends React.Component {
                 header={{
                   left: 'prev,next today',
                   center: 'title',
-                  right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+                  right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek',
                 }}
                 plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
                 ref={this.calendarComponentRef}
@@ -54,13 +55,9 @@ export default class DemoApp extends React.Component {
     });
   };
 
-  gotoPast = () => {
-    constcalendarApi = this.calendarComponentRef.current.getApi();
-    calendarApi.gotoDate('2000-01-01'); // call a method on the Calendar object
-  };
-
   handleDateClick = arg => {
-    if (confirm('Would you like to add an event to ' + arg.dateStr + '?')) {
+    /* eslint-disable-next-line */
+    if (confirm('Would you like to add an event to this date?')) {
       this.setState({
         // add new event data
         calendarEvents: this.state.calendarEvents.concat({
