@@ -27,7 +27,7 @@ export default class DemoApp extends React.Component {
         <div className="demo-app">
           <div className="demo-app-top">
             <button onClick={this.toggleWeekends}>toggle weekends</button>&nbsp;
-            &nbsp; (also, click a date/time to add an event)
+            &nbsp; (also, click a date/time to add a study session)
           </div>
           <div className="demo-app-calendar">
             <FullCalendar
@@ -51,7 +51,7 @@ export default class DemoApp extends React.Component {
   toggleWeekends = () => {
     this.setState({
       // update a property
-      calendarWeekends: !this.state.calendarWeekends
+      calendarWeekends: !this.state.calendarWeekends,
     });
   };
 
