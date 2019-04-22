@@ -9,16 +9,14 @@ import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
 import ListStuff from '../pages/ListStuff';
 import ListStuffAdmin from '../pages/ListStuffAdmin';
-import UserHome from '../pages/UserHome';
+import UserPage from '../pages/UserHome';
 import UserProfile from '../pages/UserProfile';
 import AddSession from '../pages/AddStudySesh';
-import ListStudySession from '../pages/ListStudySessions';
+import StudySession from '../pages/ListStudySessions';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
-import AdminHome from '../pages/AdminHome';
-import ListStudySessionsAdmin from '../pages/ListStudySessionsAdmin';
 
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
@@ -33,12 +31,11 @@ class App extends React.Component {
               <Route path="/signin" component={Signin}/>
               <Route path="/signup" component={Signup}/>
               <ProtectedRoute path="/list" component={ListStuff}/>
-              <ProtectedRoute path="/userPage" component={UserHome}/>
-              <AdminProtectedRoute path="/adminHome" component={AdminHome}/>
+              <ProtectedRoute path="/userPage" component={UserPage}/>
               <ProtectedRoute path="/userProfile" component={UserProfile}/>
-              <ProtectedRoute path="/studyList" component={ListStudySession}/>
-              <AdminProtectedRoute path="/adminStudyList" component={ListStudySessionsAdmin}/>
+              <ProtectedRoute path="/studyList" component={StudySession}/>
               <ProtectedRoute path="/add" component={AddSession}/>
+              <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <Route component={NotFound}/>
             </Switch>
