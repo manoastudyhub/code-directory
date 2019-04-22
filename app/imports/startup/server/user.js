@@ -18,11 +18,11 @@ if (Users.find().count() === 0) {
 
 /** This subscription publishes only the documents associated with the logged in user */
 Meteor.publish('Users', function publish() {
-  /*if (this.userId) {*/
+  if (this.userId) {
     const myUsername = Meteor.users.findOne(this.userId).username;
     return Users.find({ username: myUsername });
-  /*}
-  return this.ready();*/
+  }
+  return this.ready();
 });
 
 /** This subscription publishes all documents regardless of user, but only if the logged in user is the Admin. */
