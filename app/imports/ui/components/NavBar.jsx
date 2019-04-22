@@ -15,10 +15,10 @@ class NavBar extends React.Component {
         <Menu.Item as={NavLink} activeClassName="" exact to="/">
           <Header inverted as='h1'>Manoa Study Hub</Header>
         </Menu.Item>
-        {this.props.currentUser ? (
-            [<Menu.Item as={NavLink} activeClassName="active" exact to="/userPage" key='user'>User Page</Menu.Item>,
+        {(this.props.currentUser && (!(Roles.userIsInRole(Meteor.userId(), 'admin')))) ? (
+            [<Menu.Item as={NavLink} activeClassName="active" exact to="/userPage" key='userHome'>User Page</Menu.Item>,
               <Menu.Item as={NavLink} activeClassName="active" exact to="/profile" key='profile'>Profile</Menu.Item>,
-              <Menu.Item as={NavLink} activeClassName="active" exact to="/calendar" key='profile'>Calendar</Menu.Item>,
+              <Menu.Item as={NavLink} activeClassName="active" exact to="/calendar" key='calendar'>Calendar</Menu.Item>,
               <Menu.Item as={NavLink} activeClassName="active"
                          exact to="/studyList" key='list'>Study Sessions</Menu.Item>,
               <Menu.Item as={NavLink} activeClassName="active"
@@ -26,8 +26,7 @@ class NavBar extends React.Component {
         ) : ''}
         {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
             [<Menu.Item as={NavLink} activeClassName="active" exact to="/adminHome" key='adminHome'>Admin Home</Menu.Item>,
-              <Menu.Item as={NavLink} activeClassName="active" exact to="/userProfile" key='profile'>
-                Profile</Menu.Item>,
+              <Menu.Item as={NavLink} activeClassName="active" exact to="/calendar" key='calendar'>Calendar</Menu.Item>,
               <Menu.Item as={NavLink} activeClassName="active" exact to="/adminStudyList" key='adminList'>Admin Study List</Menu.Item>,
               <Menu.Item as={NavLink} activeClassName="active"
                          exact to="/add" key='add'>Add Study Session</Menu.Item>]

@@ -21,13 +21,13 @@ class UserHome extends React.Component {
         <div className="manoastudyhub-landing-background">
           <Grid centered columns={3}>
             <Grid.Column textAlign="center">
-              <Item as={NavLink} exact to='/userProfile'>
+              <Item as={NavLink} exact to='/profile'>
                 <Icon name="user" size="huge"/>
                 <Header as="h2">My Profile</Header>
               </Item>
             </Grid.Column>
             <Grid.Column textAlign="center">
-              <Item as={NavLink} exact to='/'>
+              <Item as={NavLink} exact to='/calendar'>
                 <Icon name="calendar alternate" size="huge" />
                 <Header as="h2">My Calendar</Header>
               </Item>
