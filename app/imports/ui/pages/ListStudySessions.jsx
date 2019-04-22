@@ -1,31 +1,14 @@
+
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Container, Header, Loader, Card } from 'semantic-ui-react';
-import { Stuffs } from '/imports/api/stuff/stuff';
+import { Sessions } from '/imports/api/session/session';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import Session from '/imports/ui/components/StudySession';
+import StudySession from '/imports/ui/components/StudySession';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListStudySessions extends React.Component {
-
-  sessions = [{
-    firstName: 'Bailey', lastName: 'Namahoe', date: '4/5/19', location: 'Hamilton Library Study Room 301',
-    owner: 'Bailey Namahoe', description: 'A study group for those in the Biol 375.',
-    type: 'group',
-  },
-    {
-      firstName: 'Tyler', lastName: 'Chinen', date: '4/9/19', location: 'Campus Center',
-      owner: 'Tyler Chinen', description: 'A study group for those in the Biol 340 class to study for the final.',
-      type: 'group',
-    },
-    {
-      firstName: 'John', lastName: 'Smith', date: '4/17/19', location: 'Paradise Palms',
-      owner: 'John Smith', description: 'A study session request for someone who can help with writing an essay for ' +
-          'Linguistics 102.',
-      type: '1 on 1',
-    },
-  ];
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
@@ -36,9 +19,9 @@ class ListStudySessions extends React.Component {
   renderPage() {
     return (
         <Container>
-          <Header as="h2" textAlign="center">List Study Seshs</Header>
+          <Header as="h2" textAlign="center">List Study Sessions</Header>
           <Card.Group>
-            {this.sessions.map((session, index) => <Session key={index} session={session} />)}
+            {this.props.sessions.map((session, index) => <StudySession key={index} session={session} />)}
           </Card.Group>
         </Container>
     );
@@ -47,16 +30,16 @@ class ListStudySessions extends React.Component {
 
 /** Require an array of Stuff documents in the props. */
 ListStudySessions.propTypes = {
-  stuffs: PropTypes.array.isRequired,
+  sessions: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Stuff documents.
-  const subscription = Meteor.subscribe('Stuff');
+  const subscription = Meteor.subscribe('Sessions');
   return {
-    stuffs: Stuffs.find({}).fetch(),
+    sessions: Sessions.find({}).fetch(),
     ready: subscription.ready(),
   };
 })(ListStudySessions);
