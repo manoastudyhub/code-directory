@@ -9,9 +9,10 @@ import '@fullcalendar/core/main.css';
 import '@fullcalendar/daygrid/main.css';
 import '@fullcalendar/timegrid/main.css';
 
-/** Uses FullCalendar and based on https://codesandbox.io/s/2z6wp2jozn */
+/** Uses FullCalendar's react component https://fullcalendar.io/docs/react */
+/** Code used is based on FullCalendar's given runnable project https://codesandbox.io/s/2z6wp2jozn */
 
-export default class DemoApp extends React.Component {
+export default class CalendarApp extends React.Component {
   calendarComponentRef = React.createRef();
 
   state = {
@@ -24,12 +25,12 @@ export default class DemoApp extends React.Component {
 
   render() {
     return (
-        <div className="demo-app">
-          <div className="demo-app-top">
+        <div className="calendar-app">
+          <div className="calendar-app-top">
             <button onClick={this.toggleWeekends}>toggle weekends</button>&nbsp;
             &nbsp; (Click a date to add a study session!)
           </div>
-          <div className="demo-app-calendar">
+          <div className="calendar-app-calendar">
             <FullCalendar
                 defaultView="dayGridMonth"
                 header={{
