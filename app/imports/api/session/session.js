@@ -15,7 +15,12 @@ const SessionSchema = new SimpleSchema({
   location: String,
   owner: String,
   description: String,
-  course: String,
+  course: {
+    type: String,
+    allowedValues: ['...', 'excellent', 'good', 'fair', 'poor'],
+    defaultValue: '...',
+  },
+  courseNum: String,
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */

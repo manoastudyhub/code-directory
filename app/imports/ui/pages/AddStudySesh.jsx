@@ -4,6 +4,7 @@ import { Grid, Segment, Header } from 'semantic-ui-react';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
 import LongTextField from 'uniforms-semantic/LongTextField';
+import SelectField from 'uniforms-semantic/SelectField';
 import SubmitField from 'uniforms-semantic/SubmitField';
 import HiddenField from 'uniforms-semantic/HiddenField';
 import ErrorsField from 'uniforms-semantic/ErrorsField';
@@ -34,10 +35,10 @@ class AddStudySesh extends React.Component {
 
   /** On submit, insert the data. */
   submit(data) {
-    const { firstName, lastName, createdBy, date, location, description, course } = data;
+    const { firstName, lastName, createdBy, date, location, description, course, courseNum } = data;
     const owner = Meteor.user().username;
     Sessions.insert({
-      firstName, lastName, createdBy, date, location, description, course, owner,
+      firstName, lastName, createdBy, date, location, description, course, courseNum, owner,
     }, this.insertCallback);
   }
 
@@ -56,7 +57,8 @@ class AddStudySesh extends React.Component {
                 <TextField name='date'/>
                 <TextField name='location'/>
                 <LongTextField name='description'/>
-                <TextField name='course'/>
+                <SelectField name='course'/>
+                <TextField name='courseNum'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
                 <HiddenField name='owner' value='fakeuser@foo.com'/>
