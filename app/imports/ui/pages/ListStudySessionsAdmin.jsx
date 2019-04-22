@@ -36,7 +36,7 @@ ListStudySessionsAdmin.propTypes = {
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Stuff documents.
-  const subscription = Meteor.subscribe('Sessions');
+  const subscription = Meteor.subscribe('SessionsAdmin');
   return {
     sessions: Sessions.find({}).fetch(),
     ready: subscription.ready(),
