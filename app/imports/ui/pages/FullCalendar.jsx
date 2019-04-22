@@ -1,7 +1,6 @@
 import React from 'react';
-import FullCalendar from '@fullcalendar/react';
-import dayGridPlugin from '@fullcalendar/daygrid';
 import { Grid } from 'semantic-ui-react';
+import CalendarApp from './CalendarApp';
 
 /** Uses FullCalendar */
 
@@ -12,7 +11,7 @@ class Calendar extends React.Component {
     return (
         <div className="manoastudyhub-calendar-background">
           <Grid container verticalAlign="middle" style={calendarSize}>
-          <FullCalendar defaultView="dayGridMonth" plugins={[dayGridPlugin]} />
+            render(<CalendarApp />);
           </Grid>
         </div>
     );
