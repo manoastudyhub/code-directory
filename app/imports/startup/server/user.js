@@ -4,7 +4,7 @@ import { Users } from '../../api/user/user.js';
 
 /** Initialize the database with a default data document. */
 function addData(data) {
-  console.log(`  Adding: ${data.name} (${data.owner})`);
+  console.log(`  Adding: ${data.firstName} (${data.lastName})`);
   Users.insert(data);
 }
 
@@ -18,11 +18,11 @@ if (Users.find().count() === 0) {
 
 /** This subscription publishes only the documents associated with the logged in user */
 Meteor.publish('Users', function publish() {
-  if (this.userId) {
-    const username = Meteor.users.findOne(this.userId).username;
-    return Users.find({ owner: username });
-  }
-  return this.ready();
+  /*if (this.userId) {*/
+    const myUsername = Meteor.users.findOne(this.userId).username;
+    return Users.find({ username: myUsername });
+  /*}
+  return this.ready();*/
 });
 
 /** This subscription publishes all documents regardless of user, but only if the logged in user is the Admin. */
