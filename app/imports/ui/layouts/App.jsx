@@ -19,6 +19,8 @@ import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
+import AdminHome from '../pages/AdminHome';
+import ListStudySessionsAdmin from '../pages/ListStudySessionsAdmin';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -33,12 +35,13 @@ class App extends React.Component {
               <Route path="/signup" component={Signup}/>
               <ProtectedRoute path="/list" component={ListStuff}/>
               <ProtectedRoute path="/userPage" component={UserPage}/>
+              <AdminProtectedRoute path="/adminHome" component={AdminHome}/>
               <ProtectedRoute path="/calendar" component={Calendar}/>
               <ProtectedRoute path="/profile" component={Profile}/>
               <ProtectedRoute path="/studyList" component={StudySession}/>
               <ProtectedRoute path="/add" component={AddSession}/>
               <ProtectedRoute path="/edit/:_id" component={EditStudy}/>
-              <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
+              <AdminProtectedRoute path="/adminStudyList" component={ListStudySessionsAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <Route component={NotFound}/>
             </Switch>
