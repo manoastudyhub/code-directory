@@ -16,9 +16,11 @@ class UserProfile extends React.Component {
 
   renderPage() {
     return (
+        <div className="manoastudyhub-landing-background">
         <Container>
           {this.props.students.map((student, index) => <Profile key={index} student={student}/>)}
         </Container>
+        </div>
     );
   }
 }

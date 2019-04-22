@@ -44,6 +44,7 @@ class AddStudySesh extends React.Component {
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   render() {
     return (
+        <div className="manoastudyhub-landing-background">
         <Grid container centered>
           <Grid.Column>
             <Header as="h2" textAlign="center">Add Study Session</Header>
@@ -63,6 +64,7 @@ class AddStudySesh extends React.Component {
             </AutoForm>
           </Grid.Column>
         </Grid>
+        </div>
     );
   }
 }

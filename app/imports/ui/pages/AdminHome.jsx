@@ -20,7 +20,7 @@ class AdminHome extends React.Component {
   }
   renderPage() {
     return (
-        <div>
+        <div className="manoastudyhub-landing-background">
           <br/><Divider/>
           <Container centered>
             <Header as="h2">Study Sessions</Header>

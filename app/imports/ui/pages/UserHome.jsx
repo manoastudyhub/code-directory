@@ -18,7 +18,7 @@ class UserHome extends React.Component {
 
   renderPage() {
     return (
-        <div>
+        <div className="manoastudyhub-landing-background">
           <Grid centered columns={3}>
             <Grid.Column textAlign="center">
               <Item as={NavLink} exact to='/userProfile'>

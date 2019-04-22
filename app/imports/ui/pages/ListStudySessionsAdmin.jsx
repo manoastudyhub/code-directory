@@ -17,12 +17,14 @@ class ListStudySessionsAdmin extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     return (
+        <div className="manoastudyhub-landing-background">
         <Container>
           <Header as="h2" textAlign="center">List Study Sessions</Header>
           <Card.Group>
             {this.props.sessions.map((session, index) => <StudySessionAdmin key={index} session={session} />)}
           </Card.Group>
         </Container>
+        </div>
     );
   }
 }
