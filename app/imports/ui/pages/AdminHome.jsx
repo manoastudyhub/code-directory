@@ -1,11 +1,11 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Users } from '/imports/api/user/user';
-import User from '/imports/ui/components/User';
+import UserAdmin from '/imports/ui/components/UserAdmin';
 import { Tutors } from '/imports/api/tutor/tutor';
 import Tutor from '/imports/ui/components/Tutor';
 import { Sessions } from '/imports/api/session/session';
-import StudySession from '/imports/ui/components/StudySession';
+import StudySessionAdmin from '/imports/ui/components/StudySessionAdmin';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import 'semantic-ui-css/semantic.min.css';
@@ -20,36 +20,16 @@ class AdminHome extends React.Component {
   renderPage() {
     return (
       <div>
-          <Grid centered columns={3}>
-            <Grid.Column textAlign="center">
-              <Item as={NavLink} exact to='/userProfile'>
-                <Icon name="user" size="huge"/>
-                <Header as="h2">My Profile</Header>
-              </Item>
-            </Grid.Column>
-            <Grid.Column textAlign="center">
-              <Item as={NavLink} exact to='/'>
-                <Icon name="calendar alternate" size="huge" />
-                <Header as="h2">My Calendar</Header>
-              </Item>
-            </Grid.Column>
-            <Grid.Column textAlign="center">
-              <Item as={NavLink} exact to='/studyList'>
-                <Icon name="user" size="huge" />
-                <Header as="h2">My Study Sessions</Header>
-              </Item>
-            </Grid.Column>
-          </Grid>
           <br/><Divider/>
           <Container centered>
-          <Header as="h2">Upcoming Study Sessions</Header>
+          <Header as="h2">Study Sessions</Header>
           <List divided verticalAlign='middle'>
             {this.props.sessions.map((session, index)=>
               <List.Item>
                 <List.Content floated='right'>
                   <Modal size="mini" trigger={<Button>View Session</Button>} closeIcon>
                     <Modal.Content>
-                      <StudySession session={session} key={index} />
+                      <StudySessionAdmin session={session} key={index} />
                     </Modal.Content>
                   </Modal>
                 </List.Content>
@@ -58,11 +38,11 @@ class AdminHome extends React.Component {
               </List.Item>
             )}
           </List>
-          <Header as="h2">Other Students</Header>
+          <Header as="h2">Students</Header>
           <Grid columns={3}>
               {this.props.users.map((user, index)=>
                 <Grid.Column>
-                  <User user={user} key={index} notes={index} />
+                  <UserAdmin user={user} key={index} notes={index} />
                 </Grid.Column>
               )}
           </Grid>
@@ -82,8 +62,8 @@ AdminHome.propTypes = {
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Stuff documents.
-  const subscription = Meteor.subscribe('Sessions');
-  const userSubscription = Meteor.subscribe('Users');
+  const subscription = Meteor.subscribe('SessionsAdmin');
+  const userSubscription = Meteor.subscribe('UsersAdmin');
   return {
     users: Users.find({}).fetch(),
     sessions: Sessions.find({}).fetch(),
