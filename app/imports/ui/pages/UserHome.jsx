@@ -8,7 +8,8 @@ import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import 'semantic-ui-css/semantic.min.css';
 import { NavLink } from 'react-router-dom';
-import { Container, Header, Icon, Button, Grid, List, Divider, Item, Loader, Modal } from 'semantic-ui-react';
+import { Container, Header, Icon, Button, Grid, List, Divider, Item, Loader, Modal, Image } from 'semantic-ui-react';
+import { Accounts } from 'meteor/accounts-base';
 
 class UserHome extends React.Component {
 
@@ -19,6 +20,7 @@ class UserHome extends React.Component {
   renderPage() {
     return (
         <div className="manoastudyhub-landing-background">
+          <Image src={Meteor.user().profile.image} />
           <Grid centered columns={3}>
             <Grid.Column textAlign="center">
               <Item as={NavLink} exact to='/profile'>
@@ -74,6 +76,7 @@ UserHome.propTypes = {
   users: PropTypes.array.isRequired,
   sessions: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
+  currentUser: PropTypes.string,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
@@ -85,5 +88,6 @@ export default withTracker(() => {
     users: Users.find({}).fetch(),
     sessions: Sessions.find({}).fetch(),
     ready: subscription.ready(),
+    currentUser: Meteor.user() ? Meteor.user().username : '',
   };
 })(UserHome);

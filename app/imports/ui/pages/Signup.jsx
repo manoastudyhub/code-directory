@@ -8,10 +8,10 @@ import { Accounts } from 'meteor/accounts-base';
  */
 
 const classStandingOptions = [
-  { key: 'freshman', text: 'Freshman', value: 'freshman' },
-  { key: 'sophomore', text: 'Sophomore', value: 'sophomore' },
-  { key: 'junior', text: 'Junior', value: 'junior' },
-  { key: 'senior', text: 'Senior', value: 'senior' },
+  { key: 'freshman', text: 'Freshman', value: 'Freshman' },
+  { key: 'sophomore', text: 'Sophomore', value: 'Sophomore' },
+  { key: 'junior', text: 'Junior', value: 'Junior' },
+  { key: 'Senior', text: 'Senior', value: 'Senior' },
   
 ]
 export default class Signup extends React.Component {
