@@ -6,6 +6,7 @@ import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
 import LongTextField from 'uniforms-semantic/LongTextField';
 import SubmitField from 'uniforms-semantic/SubmitField';
+import SelectField from 'uniforms-semantic/SelectField';
 import HiddenField from 'uniforms-semantic/HiddenField';
 import ErrorsField from 'uniforms-semantic/ErrorsField';
 import { Meteor } from 'meteor/meteor';
@@ -17,9 +18,9 @@ class EditStudy extends React.Component {
 
   /** On successful submit, insert the data. */
   submit(data) {
-    const { firstName, lastName, createdBy, date, location, description, course, _id } = data;
+    const { firstName, lastName, date, location, description, course, courseNum, _id } = data;
     Sessions.update(_id, { $set: {
-        firstName, lastName, createdBy, date, location, description, course } }, (error) => (error ?
+        firstName, lastName, date, location, description, course, courseNum } }, (error) => (error ?
         Bert.alert({ type: 'danger', message: `Update failed: ${error.message}` }) :
         Bert.alert({ type: 'success', message: 'Update succeeded' })));
   }
@@ -40,11 +41,11 @@ class EditStudy extends React.Component {
               <Segment>
                 <TextField name='firstName'/>
                 <TextField name='lastName'/>
-                <TextField name='createdBy'/>
                 <TextField name='date'/>
                 <TextField name='location'/>
                 <LongTextField name='description'/>
-                <TextField name='course'/>
+                <SelectField name='course'/>
+                <TextField name='courseNum'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
                 <HiddenField name='owner' />
