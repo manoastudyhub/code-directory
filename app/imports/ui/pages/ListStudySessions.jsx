@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Header, Loader, Card } from 'semantic-ui-react';
+import { Container, Header, Loader, Card, Input } from 'semantic-ui-react';
 import { Sessions } from '/imports/api/session/session';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
@@ -20,6 +20,7 @@ class ListStudySessions extends React.Component {
         <div className="manoastudyhub-landing-background">
         <Container>
           <Header as="h2" textAlign="center">List Study Sessions</Header>
+          <Input icon='search' align='right' placeholder='Search for a Course...'/>
           <Card.Group>
             {this.props.sessions.map((session, index) => <StudySession key={index} session={session} />)}
           </Card.Group>
