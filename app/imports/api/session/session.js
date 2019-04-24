@@ -10,7 +10,6 @@ const Sessions = new Mongo.Collection('Sessions');
 const SessionSchema = new SimpleSchema({
   firstName: String,
   lastName: String,
-  createdBy: String,
   date: String,
   location: String,
   owner: String,

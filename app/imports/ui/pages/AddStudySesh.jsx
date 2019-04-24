@@ -1,6 +1,6 @@
 import React from 'react';
 import { Sessions, SessionSchema } from '/imports/api/session/session';
-import { Grid, Segment, Header } from 'semantic-ui-react';
+import { Grid, Segment, Header, Form } from 'semantic-ui-react';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
 import LongTextField from 'uniforms-semantic/LongTextField';
@@ -51,14 +51,17 @@ class AddStudySesh extends React.Component {
             <Header as="h2" textAlign="center">Add Study Session</Header>
             <AutoForm ref={(ref) => { this.formRef = ref; }} schema={SessionSchema} onSubmit={this.submit}>
               <Segment>
+                <Form.Group widths='equal'>
                 <TextField name='firstName'/>
                 <TextField name='lastName'/>
-                <TextField name='createdBy'/>
+                </Form.Group>
                 <TextField name='date'/>
                 <TextField name='location'/>
                 <LongTextField name='description'/>
+                <Form.Group widths='equal'>
                 <SelectField name='course'/>
                 <TextField name='courseNum'/>
+                </Form.Group>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
                 <HiddenField name='owner' value='fakeuser@foo.com'/>

@@ -24,6 +24,7 @@
       "classStanding": "Senior",
       "image": "https://semantic-ui.com/images/avatar2/large/kristy.png",
       "major": "Biology",
+      "tutor": "true",
       "subjects": "Biology, Chemistry",
       "description": "My name is Kristy"
     },
@@ -34,6 +35,7 @@
       "classStanding": "Freshman",
       "image": "https://semantic-ui.com/images/avatar2/large/matthew.png",
       "major": "Math",
+      "tutor": "true",
       "subjects": "Calculus, Software Engineering",
       "description": "My name is Matt"
     }
@@ -43,12 +45,12 @@
     {
       "firstName": "Bailey",
       "lastName": "Namahoe",
-      "createdBy": "John Doe",
       "date": "4/5/19",
       "location": "Hamilton Library Study Room 301",
       "owner": "john@foo.com",
       "description": "A study group for those in the Biol 375.",
-      "course": "BIOL"
+      "course": "BIOL",
+      "courseNum": "340"
     },
     {
       "firstName": "Tyler",
@@ -58,7 +60,8 @@
       "location": "Campus Center",
       "owner": "john@foo.com",
       "description": "A study group for those in the Biol 340 class to study for the final.",
-      "course": "BIOL"
+      "course": "BIOL",
+      "courseNum": "340"
     },
     {
       "firstName": "John",
@@ -68,7 +71,8 @@
       "location": "Paradise Palms",
       "owner": "admin@foo.com",
       "description": "A study session request for someone who can help with writing an essay for Linguistics 102.",
-      "course": "LING"
+      "course": "LING",
+      "courseNum": "102"
     }
   ]
 }
