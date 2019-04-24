@@ -25,7 +25,8 @@
       "image": "https://semantic-ui.com/images/avatar2/large/kristy.png",
       "major": "Biology",
       "subjects": "Biology, Chemistry",
-      "description": "My name is Kristy"
+      "description": "My name is Kristy",
+      "tutor": false
     },
     {
       "firstName": "Matt",
@@ -35,7 +36,8 @@
       "image": "https://semantic-ui.com/images/avatar2/large/matthew.png",
       "major": "Math",
       "subjects": "Calculus, Software Engineering",
-      "description": "My name is Matt"
+      "description": "My name is Matt",
+      "tutor": false
     }
   ],
 
