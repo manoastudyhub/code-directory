@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Loader, Header, Segment } from 'semantic-ui-react';
+import { Grid, Loader, Header, Segment, Form } from 'semantic-ui-react';
 import { Sessions, SessionSchema } from '/imports/api/session/session';
 import { Bert } from 'meteor/themeteorchef:bert';
 import AutoForm from 'uniforms-semantic/AutoForm';
@@ -39,13 +39,17 @@ class EditStudy extends React.Component {
             <Header as="h2" textAlign="center">Edit Study Session</Header>
             <AutoForm schema={SessionSchema} onSubmit={this.submit} model={this.props.doc}>
               <Segment>
+                <Form.Group widths='equal'>
                 <TextField name='firstName'/>
                 <TextField name='lastName'/>
+                </Form.Group>
                 <TextField name='date'/>
                 <TextField name='location'/>
                 <LongTextField name='description'/>
+                <Form.Group widths='equal'>
                 <SelectField name='course'/>
                 <TextField name='courseNum'/>
+                </Form.Group>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
                 <HiddenField name='owner' />
