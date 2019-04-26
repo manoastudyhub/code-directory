@@ -7,6 +7,9 @@ import interactionPlugin from '@fullcalendar/interaction';
 import PropTypes from 'prop-types';
 import { Sessions } from '/imports/api/session/session';
 import { withTracker } from 'meteor/react-meteor-data';
+import { Modal } from 'semantic-ui-react';
+import StudySession from '/imports/ui/components/StudySession';
+
 
 // must manually import the stylesheets for each plugin
 import '@fullcalendar/core/main.css';
@@ -20,21 +23,23 @@ import '@fullcalendar/timegrid/main.css';
 class CalendarApp extends React.Component {
   calendarComponentRef = React.createRef();
 
-  eventData() {
-    this.props.sessions.map((session) => this.setState({
-      // add new event data
-      calendarEvents: this.state.calendarEvents.concat({
-        // creates a new array
-        title: session.course,
-        start: session.date,
-      }),
-    }));
-  }
-
   state = {
     calendarWeekends: true,
     calendarEvents: [{}],
 };
+
+  eventData() {
+    const events = _.map(this.props.sessions, (s) => {
+      return {
+        title: s.course,
+        start: s.date,
+      };
+    });
+    this.setState({
+      // update a property
+      calendarEvents: events,
+    });
+  }
 
 
   render() {
@@ -42,6 +47,7 @@ class CalendarApp extends React.Component {
         <div className="calendar-app">
           <div className="calendar-app-top">
             <button onClick={this.toggleWeekends}>toggle weekends</button>&nbsp;
+            <button onClick={this.refreshData}>View Sessions</button>&nbsp;
             &nbsp; (Click a date to add a study session!)
           </div>
           <div className="calendar-app-calendar">
@@ -70,20 +76,15 @@ class CalendarApp extends React.Component {
     });
   };
 
-  handleDateClick = arg => {
+  refreshData = () => {
+    this.eventData();
+  }
+
+  handleDateClick = () => {
     /* eslint-disable-next-line */
     if (confirm('Would you like to add an event to this date?')) {
-      this.setState({
-        // add new event data
-        calendarEvents: this.state.calendarEvents.concat({
-          // creates a new array
-          title: 'New Event',
-          start: arg.date,
-          allDay: arg.allDay,
-        }),
-      });
-      this.eventData();
-    }
+      this.props.history.push('/add')
+  }
   };
 }
 
