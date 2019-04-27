@@ -25,6 +25,7 @@ class CalendarApp extends React.Component {
   state = {
     calendarWeekends: true,
     calendarEvents: [{}],
+    redirect: false,
   };
 
   eventData() {
@@ -41,6 +42,13 @@ class CalendarApp extends React.Component {
   }
 
   render() {
+
+    const { redirect } = this.state;
+
+    if (redirect) {
+      return <Redirect to={'/add'}/>;
+    }
+
     return (
         <div className="calendar-app">
           <div className="calendar-app-top">
@@ -69,8 +77,6 @@ class CalendarApp extends React.Component {
     );
   }
 
-  handleDateClick
-
   toggleWeekends = () => {
     this.setState({
       // update a property
@@ -82,10 +88,10 @@ class CalendarApp extends React.Component {
     this.eventData();
   }
 
-  handleDateClick = () => {
+  handleDateClick = arg => {
     /* eslint-disable-next-line */
     if (confirm("Would you like to add an event to " + arg.dateStr + " ?")) {
-      this.history.push('/add');
+      this.setState({ redirect: true });
     }
   };
 }
