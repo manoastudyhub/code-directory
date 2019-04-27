@@ -11,7 +11,7 @@ class User extends React.Component {
           <Card.Content>
             <Image floated='right' size='mini' src={this.props.user.image} />
             <Card.Header>{this.props.user.firstName} {this.props.user.lastName}</Card.Header>
-            <Card.Meta>{this.props.user.username}</Card.Meta>
+            <Card.Meta>{this.props.user.owner}</Card.Meta>
             <Card.Meta>{this.props.user.classStanding}</Card.Meta>
             <Card.Meta>{this.props.user.major}</Card.Meta>
             <Card.Description>
@@ -20,7 +20,7 @@ class User extends React.Component {
           </Card.Content>
           <Card.Content extra>
             <a>
-              {this.props.user.subjects}
+              {this.props.user.subject1}
             </a>
           </Card.Content>
         </Card>
@@ -31,7 +31,6 @@ class User extends React.Component {
 /** Require a document to be passed to this component. */
 User.propTypes = {
   user: PropTypes.object.isRequired,
-  notes: PropTypes.array.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */

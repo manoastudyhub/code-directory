@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Form, Grid, Header, Message, Segment, Button, Label } from 'semantic-ui-react';
 import { Accounts } from 'meteor/accounts-base';
+import { Users } from '/imports/api/user/user';
 
 /**
  * Signup component is similar to signin component, but we attempt to create a new user instead.
@@ -26,14 +27,18 @@ export default class Signup extends React.Component {
       classStanding: '',
       image: '',
       major: '',
-      subjects: [],
+      subject1: '',
+      subject2: '',
+      subject3: '',
+      description: '',
+      tutor: false,
       error: '' 
     };
     // Ensure that 'this' is bound to this component in these two functions.
     // https://medium.freecodecamp.org/react-binding-patterns-5-approaches-for-handling-this-92c651b5af56
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubjectsClick = this.handleSubjectsClick.bind(this);
+    this.handleSubjectsChange = this.handleSubjectsChange.bind(this);
   }
 
   /** Update the form controls each time the user interacts with them. */
@@ -43,10 +48,9 @@ export default class Signup extends React.Component {
 
   /** Handle Signup submission using Meteor's account mechanism. */
   handleSubmit() {
-    const { email, password, firstName, lastName, classStanding, image, major, subjects } = this.state;
-    Accounts.createUser({ email, username: email, password, 
-      profile:{firstName: firstName, lastName: lastName, classStanding: classStanding, image: image, major: major, subjects: subjects } 
-      }, (err) => {
+    const { email, password, firstName, lastName, classStanding, image, major, subject1, subject2, subject3, description, tutor } = this.state;
+    const subjects = [subject1, subject2, subject3];
+    Accounts.createUser({ email, username: email, password }, (err) => {
       if (err) {
         this.setState({ error: err.reason });
       } else {
@@ -54,12 +58,13 @@ export default class Signup extends React.Component {
 
       }
     });
+    Users.insert({firstName: firstName, lastName: lastName, owner: email, classStanding: classStanding, image: image, major: major, subject1: subject1, subject2: subject2, subject3: subject3, subjects: subjects, description: description, tutor: tutor, });
   }
 
-  handleSubjectsClick(e, { name, value }){
-    let prevState = this.name.subjects.slice();
-    prevState.push(value);
-    this.setState({[name]: prevState});
+  handleSubjectsChange(e,{name, value}){
+    let subjects = [...this.state.subjects];
+    subjects.push(value);
+    this.setState({subjects});
   }
 
   /** Display the signup form. */
@@ -143,22 +148,34 @@ export default class Signup extends React.Component {
                         onChange={this.handleChange}
                   />
                   <Form.Input 
-                        label="Add Subject" 
-                        action={{icon:"add square"}} 
+                        label="Add Subject 1"
                         placeholder="ICS 313" 
-                        type="subject" 
-                        name="subject" 
-                        onClick={this.handleSubjectsClick}
+                        type="subject1" 
+                        name="subject1" 
+                        onChange={this.handleChange}
                   />
-                  {/*
-                    let {subjects} = this.state
-                    this.state.subjects.map((val, i)=>{
-                      return(
-                        <Label key={i}>Test</Label>
-                      )
-                    })
-                    */
-                  }
+                  <Form.Input 
+                        label="Add Subject 2"
+                        placeholder="ICS 313" 
+                        type="subject2" 
+                        name="subject2" 
+                        onChange={this.handleChange}
+                  />
+                  <Form.Input 
+                        label="Add Subject 3" 
+                        placeholder="ICS 313" 
+                        type="subject3" 
+                        name="subject3" 
+                        onChange={this.handleChange}
+                  />
+                  <Form.Input 
+                        label="Description" 
+                        placeholder="Description" 
+                        type="description" 
+                        name="description" 
+                        onChange={this.handleChange}
+                  />
+                  
                   <Form.Button content="Submit"/>
                 </Segment>
               </Form>

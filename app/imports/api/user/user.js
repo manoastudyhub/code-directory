@@ -9,12 +9,15 @@ const Users = new Mongo.Collection('Users');
 const UserSchema = new SimpleSchema({
   firstName: String,
   lastName: String,
-  username: String,
+  owner: String,
   classStanding: String,
   image: String,
   major: String,
-  subjects: String,
-  description: String,
+  subject1: {type: String, optional: true},
+  subject2: {type: String, optional: true},
+  subject3: {type: String, optional: true},
+  subjects: {type: Object, optional: true},
+  description: {type: String, optional: true},
   tutor: Boolean,
 }, { tracker: Tracker });
 

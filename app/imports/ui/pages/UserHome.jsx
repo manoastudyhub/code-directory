@@ -20,7 +20,6 @@ class UserHome extends React.Component {
   renderPage() {
     return (
         <div className="manoastudyhub-landing-background">
-          <Image src={Meteor.user().profile.image} />
           <Grid centered columns={3}>
             <Grid.Column textAlign="center">
               <Item as={NavLink} exact to='/profile'>
@@ -60,10 +59,13 @@ class UserHome extends React.Component {
             </List>
             <Header as="h2">Other Students</Header>
             <Grid columns={3}>
-              {this.props.users.map((user, index) => <Grid.Column>
-                    <User user={user} key={index} notes={index} />
-                  </Grid.Column>,
-              )}
+              {
+              this.props.users.map((user, index) => 
+                  <Grid.Column key={index}>
+                    <User user={user} key={index} />
+                  </Grid.Column>
+              )
+              }
             </Grid>
           </Container>
         </div>
@@ -83,7 +85,7 @@ UserHome.propTypes = {
 export default withTracker(() => {
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe('Sessions');
-  const userSubscription = Meteor.subscribe('Users');
+  const useSubscription = Meteor.subscribe('AllUsers');
   return {
     users: Users.find({}).fetch(),
     sessions: Sessions.find({}).fetch(),
