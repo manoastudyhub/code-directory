@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
@@ -7,8 +8,6 @@ import interactionPlugin from '@fullcalendar/interaction';
 import PropTypes from 'prop-types';
 import { Sessions } from '/imports/api/session/session';
 import { withTracker } from 'meteor/react-meteor-data';
-import { Modal } from 'semantic-ui-react';
-import StudySession from '/imports/ui/components/StudySession';
 
 
 // must manually import the stylesheets for each plugin
@@ -26,7 +25,7 @@ class CalendarApp extends React.Component {
   state = {
     calendarWeekends: true,
     calendarEvents: [{}],
-};
+  };
 
   eventData() {
     const events = _.map(this.props.sessions, (s) => {
@@ -41,13 +40,14 @@ class CalendarApp extends React.Component {
     });
   }
 
-
   render() {
     return (
         <div className="calendar-app">
           <div className="calendar-app-top">
-            <button onClick={this.toggleWeekends}>toggle weekends</button>&nbsp;
-            <button onClick={this.refreshData}>View Sessions</button>&nbsp;
+            <button onClick={this.toggleWeekends}>toggle weekends</button>
+            &nbsp;
+            <button onClick={this.refreshData}>View Sessions</button>
+            &nbsp;
             &nbsp; (Click a date to add a study session!)
           </div>
           <div className="calendar-app-calendar">
@@ -69,6 +69,8 @@ class CalendarApp extends React.Component {
     );
   }
 
+  handleDateClick
+
   toggleWeekends = () => {
     this.setState({
       // update a property
@@ -82,9 +84,9 @@ class CalendarApp extends React.Component {
 
   handleDateClick = () => {
     /* eslint-disable-next-line */
-    if (confirm('Would you like to add an event to this date?')) {
-      this.props.history.push('/add')
-  }
+    if (confirm("Would you like to add an event to " + arg.dateStr + " ?")) {
+      this.history.push('/add');
+    }
   };
 }
 
