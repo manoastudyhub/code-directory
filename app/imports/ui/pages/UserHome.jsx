@@ -52,19 +52,17 @@ class UserHome extends React.Component {
                         </Modal.Content>
                       </Modal>
                     </List.Content>
-                    <List.Content>{'Location: ' + session.location}</List.Content>
-                    <List.Content>{'Date: ' + session.date}</List.Content>
+                    <List.Content>{`Location: ${session.location}`}</List.Content>
+                    <List.Content>{`Date: ${session.date}`}</List.Content>
                   </List.Item>)
               }
             </List>
             <Header as="h2">Other Students</Header>
             <Grid columns={3}>
               {
-              this.props.users.map((user, index) => 
-                  <Grid.Column key={index}>
+              this.props.users.map((user, index) => <Grid.Column key={index}>
                     <User user={user} key={index} />
-                  </Grid.Column>
-              )
+                  </Grid.Column>)
               }
             </Grid>
           </Container>

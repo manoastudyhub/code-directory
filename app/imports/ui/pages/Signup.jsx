@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Form, Grid, Header, Message, Segment, Button, Label } from 'semantic-ui-react';
+import { Container, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
 import { Accounts } from 'meteor/accounts-base';
 import { Users } from '/imports/api/user/user';
 
@@ -13,15 +13,15 @@ const classStandingOptions = [
   { key: 'sophomore', text: 'Sophomore', value: 'Sophomore' },
   { key: 'junior', text: 'Junior', value: 'Junior' },
   { key: 'Senior', text: 'Senior', value: 'Senior' },
-  
-]
+
+];
 export default class Signup extends React.Component {
   /** Initialize state fields. */
   constructor(props) {
     super(props);
-    this.state = { 
-      email: '', 
-      password: '', 
+    this.state = {
+      email: '',
+      password: '',
       firstName: '',
       lastName: '',
       classStanding: '',
@@ -32,13 +32,12 @@ export default class Signup extends React.Component {
       subject3: '',
       description: '',
       tutor: false,
-      error: '' 
+      error: '',
     };
     // Ensure that 'this' is bound to this component in these two functions.
     // https://medium.freecodecamp.org/react-binding-patterns-5-approaches-for-handling-this-92c651b5af56
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubjectsChange = this.handleSubjectsChange.bind(this);
   }
 
   /** Update the form controls each time the user interacts with them. */
@@ -48,7 +47,8 @@ export default class Signup extends React.Component {
 
   /** Handle Signup submission using Meteor's account mechanism. */
   handleSubmit() {
-    const { email, password, firstName, lastName, classStanding, image, major, subject1, subject2, subject3, description, tutor } = this.state;
+    const { email, password, firstName, lastName, classStanding, image, major, subject1, subject2,
+      subject3, description, tutor } = this.state;
     const subjects = [subject1, subject2, subject3];
     Accounts.createUser({ email, username: email, password }, (err) => {
       if (err) {
@@ -58,13 +58,9 @@ export default class Signup extends React.Component {
 
       }
     });
-    Users.insert({firstName: firstName, lastName: lastName, owner: email, classStanding: classStanding, image: image, major: major, subject1: subject1, subject2: subject2, subject3: subject3, subjects: subjects, description: description, tutor: tutor, });
-  }
-
-  handleSubjectsChange(e,{name, value}){
-    let subjects = [...this.state.subjects];
-    subjects.push(value);
-    this.setState({subjects});
+    Users.insert({ firstName: firstName, lastName: lastName, owner: email,
+      classStanding: classStanding, image: image, major: major, subject1: subject1,
+      subject2: subject2, subject3: subject3, subjects: subjects, description: description, tutor: tutor });
   }
 
   /** Display the signup form. */
@@ -121,7 +117,7 @@ export default class Signup extends React.Component {
                     />
                     </Grid.Column>
                   </Grid>
-                  <Form.Select 
+                  <Form.Select
                       label="Class Standing"
                       options={classStandingOptions}
                       placeholder="Class Standing"
@@ -147,35 +143,35 @@ export default class Signup extends React.Component {
                         type="major"
                         onChange={this.handleChange}
                   />
-                  <Form.Input 
+                  <Form.Input
                         label="Add Subject 1"
-                        placeholder="ICS 313" 
-                        type="subject1" 
-                        name="subject1" 
+                        placeholder="ICS 313"
+                        type="subject1"
+                        name="subject1"
                         onChange={this.handleChange}
                   />
-                  <Form.Input 
+                  <Form.Input
                         label="Add Subject 2"
-                        placeholder="ICS 313" 
-                        type="subject2" 
-                        name="subject2" 
+                        placeholder="ICS 313"
+                        type="subject2"
+                        name="subject2"
                         onChange={this.handleChange}
                   />
-                  <Form.Input 
-                        label="Add Subject 3" 
-                        placeholder="ICS 313" 
-                        type="subject3" 
-                        name="subject3" 
+                  <Form.Input
+                        label="Add Subject 3"
+                        placeholder="ICS 313"
+                        type="subject3"
+                        name="subject3"
                         onChange={this.handleChange}
                   />
-                  <Form.Input 
-                        label="Description" 
-                        placeholder="Description" 
-                        type="description" 
-                        name="description" 
+                  <Form.Input
+                        label="Description"
+                        placeholder="Description"
+                        type="description"
+                        name="description"
                         onChange={this.handleChange}
                   />
-                  
+
                   <Form.Button content="Submit"/>
                 </Segment>
               </Form>

@@ -13,11 +13,11 @@ const UserSchema = new SimpleSchema({
   classStanding: String,
   image: String,
   major: String,
-  subject1: {type: String, optional: true},
-  subject2: {type: String, optional: true},
-  subject3: {type: String, optional: true},
-  subjects: {type: Object, optional: true},
-  description: {type: String, optional: true},
+  subject1: { type: String, optional: true },
+  subject2: { type: String, optional: true },
+  subject3: { type: String, optional: true },
+  subjects: { type: Object, optional: true },
+  description: { type: String, optional: true },
   tutor: Boolean,
 }, { tracker: Tracker });
 

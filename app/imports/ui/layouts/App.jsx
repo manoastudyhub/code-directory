@@ -12,6 +12,7 @@ import ListStuff from '../pages/ListStuff';
 import ListStuffAdmin from '../pages/ListStuffAdmin';
 import UserPage from '../pages/UserHome';
 import Profile from '../pages/UserProfile';
+import EditProfile from '../pages/EditProfile';
 import AddSession from '../pages/AddStudySesh';
 import EditStudy from '../pages/EditStudy';
 import StudySession from '../pages/ListStudySessions';
@@ -41,6 +42,7 @@ class App extends React.Component {
               <ProtectedRoute path="/studyList" component={StudySession}/>
               <ProtectedRoute path="/add" component={AddSession}/>
               <ProtectedRoute path="/edit/:_id" component={EditStudy}/>
+              <ProtectedRoute path="/editprofile/:_id" component={EditProfile}/>
               <AdminProtectedRoute path="/adminStudyList" component={ListStudySessionsAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <Route component={NotFound}/>
