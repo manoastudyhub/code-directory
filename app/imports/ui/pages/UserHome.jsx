@@ -11,13 +11,19 @@ import { NavLink } from 'react-router-dom';
 import { Container, Header, Icon, Button, Grid, List, Divider, Item, Loader, Modal, Image } from 'semantic-ui-react';
 import { Accounts } from 'meteor/accounts-base';
 
-class UserHome extends React.Component {
+function returnCurrentUser(userArray, user){
+  return(userArray.find(x => x.owner == user))
+}
 
+
+class UserHome extends React.Component {
+  
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
   }
 
   renderPage() {
+    
     return (
         <div className="manoastudyhub-landing-background">
           <Grid centered columns={3}>
@@ -57,14 +63,16 @@ class UserHome extends React.Component {
                   </List.Item>)
               }
             </List>
-            <Header as="h2">Other Students</Header>
+            <Header as="h2">Other Students With The Same Major</Header>
             <Grid columns={3}>
               {
-              this.props.users.map((user, index) => 
-                  <Grid.Column key={index}>
-                    <User user={user} key={index} />
-                  </Grid.Column>
-              )
+                this.props.users.map((user, index) => 
+                  ((user.owner!=this.props.currentUser) && (returnCurrentUser(this.props.users, this.props.currentUser)).major == user.major) ? (
+                      <Grid.Column key={index}>
+                        <User user={user} key={index} />
+                      </Grid.Column>
+                  ) : ('')
+                )
               }
             </Grid>
           </Container>

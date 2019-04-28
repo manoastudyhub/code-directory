@@ -35,5 +35,5 @@ Meteor.publish('UsersAdmin', function publish() {
 
 Meteor.publish('AllUsers', function(){
   const username = Meteor.users.findOne(this.userId).username;
-  return Users.find({ owner: { $nin: [username] }})
+  return Users.find()
 })
