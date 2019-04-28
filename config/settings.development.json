@@ -48,8 +48,9 @@
       "date": "4/5/19",
       "location": "Hamilton Library Study Room 301",
       "owner": "john@foo.com",
+      "attending": "john@foo.com",
       "description": "A study group for those in the Biol 375.",
-      "course": "BIOL",
+      "course": "Biology (BIOL)",
       "courseNum": "340"
     },
     {
@@ -59,8 +60,21 @@
       "date": "4/9/19",
       "location": "Campus Center",
       "owner": "john@foo.com",
+      "attending": "john@foo.com",
       "description": "A study group for those in the Biol 340 class to study for the final.",
-      "course": "BIOL",
+      "course": "Biology (BIOL)",
+      "courseNum": "340"
+    },
+    {
+      "firstName": "James",
+      "lastName": "Foo",
+      "createdBy": "Angeli Amas",
+      "date": "4/10/19",
+      "location": "Campus Center",
+      "owner": "james@foo.com",
+      "attending": "james@foo.com",
+      "description": "A study group for those in the Biol 340 class to study for the final.",
+      "course": "Biology (BIOL)",
       "courseNum": "340"
     },
     {
@@ -71,7 +85,7 @@
       "location": "Paradise Palms",
       "owner": "admin@foo.com",
       "description": "A study session request for someone who can help with writing an essay for Linguistics 102.",
-      "course": "LING",
+      "course": "Linguistics (LING)",
       "courseNum": "102"
     }
   ]

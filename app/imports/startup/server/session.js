@@ -19,8 +19,7 @@ if (Sessions.find().count() === 0) {
 /** This subscription publishes only the documents associated with the logged in user */
 Meteor.publish('Sessions', function publish() {
   if (this.userId) {
-    const username = Meteor.users.findOne(this.userId).username;
-    return Sessions.find({ owner: username });
+    return Sessions.find();
   }
   return this.ready();
 });

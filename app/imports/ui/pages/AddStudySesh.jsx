@@ -37,8 +37,9 @@ class AddStudySesh extends React.Component {
   submit(data) {
     const { firstName, lastName, createdBy, date, location, description, course, courseNum } = data;
     const owner = Meteor.user().username;
+    const attending = Meteor.user().username;
     Sessions.insert({
-      firstName, lastName, createdBy, date, location, description, course, courseNum, owner,
+      firstName, lastName, createdBy, date, location, description, attending, course, courseNum, owner,
     }, this.insertCallback);
   }
 
@@ -65,6 +66,7 @@ class AddStudySesh extends React.Component {
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
                 <HiddenField name='owner' value='fakeuser@foo.com'/>
+                <HiddenField name='attending' value='username'/>
               </Segment>
             </AutoForm>
           </Grid.Column>
