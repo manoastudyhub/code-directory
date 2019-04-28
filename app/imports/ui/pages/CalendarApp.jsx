@@ -78,8 +78,9 @@ class CalendarApp extends React.Component {
     const { firstName, lastName, createdBy, location, description, course } = data;
     const { date } = this.state;
     const owner = Meteor.user().username;
+    const attending = Meteor.user().username;
     Sessions.insert({
-      firstName, lastName, createdBy, date, location, description, course, owner,
+      firstName, lastName, createdBy, date, location, description, attending, course, owner,
     }, this.insertCallback);
   }
 
@@ -105,6 +106,7 @@ class CalendarApp extends React.Component {
                     <ErrorsField/>
                     <HiddenField name='owner' value='fakeuser@foo.com'/>
                     <HiddenField name='date' value='04/26/2019'/>
+                    <HiddenField name='attending' value='attended'/>
                   </Segment>
                 </AutoForm>
               </Grid.Column>
