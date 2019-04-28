@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Form, Grid, Header, Message, Segment, Button, Label } from 'semantic-ui-react';
+import { Container, Form, Grid, Header, Message, Segment, Button, Label, Radio } from 'semantic-ui-react';
 import { Accounts } from 'meteor/accounts-base';
 import { Users } from '/imports/api/user/user';
 
