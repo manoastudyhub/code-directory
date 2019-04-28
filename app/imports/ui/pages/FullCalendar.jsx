@@ -2,6 +2,7 @@ import React from 'react';
 import { Grid } from 'semantic-ui-react';
 import CalendarApp from './CalendarApp';
 
+
 /** Uses FullCalendar and based on https://codesandbox.io/s/2z6wp2jozn */
 
 /** A simple static component to render some text for the landing page. */
