@@ -60,9 +60,11 @@ class Profile extends React.Component {
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>
+          </Grid.Row>
+          <Grid.Row>
             <Grid.Column textAlign="center" width={8}>
               <Button>
-                <Link to={`/editprofile/${this.props.user._id}`}>Edit</Link>
+                <Link to={`/editprofile/${this.props.user._id}`}>Edit Profile</Link>
               </Button>
             </Grid.Column>
           </Grid.Row>
