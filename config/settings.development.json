@@ -20,6 +20,26 @@
   ],
   "defaultUsers": [
     {
+      "firstName": "John",
+      "lastName": "Foo",
+      "owner": "john@foo.com",
+      "classStanding": "Junior",
+      "image": "https://react.semantic-ui.com/images/avatar/large/steve.jpg",
+      "major": "Physics",
+      "description": "My name is John",
+      "tutor": false
+    },
+    {
+      "firstName": "Admin",
+      "lastName": "Foo",
+      "owner": "admin@foo.com",
+      "classStanding": "Senior",
+      "image": "https://react.semantic-ui.com/images/avatar/large/steve.jpg",
+      "major": "Computer Science",
+      "description": "I am an admin",
+      "tutor": true
+    },
+    {
       "firstName": "Kristy",
       "lastName": "Foo",
       "owner": "kristy@foo.com",
