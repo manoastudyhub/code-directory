@@ -258,7 +258,7 @@ class ListStudySessions extends React.Component {
 
   constructor(props) {
     super(props);
-    this.handleChange=this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.state = { choices: [] };
   }
 
@@ -280,7 +280,7 @@ class ListStudySessions extends React.Component {
       if (this.state.choices.length === 0) {
         return true;
       }
-      console.log(session.course, this.state.choices)
+      console.log(session.course, this.state.choices);
         return _.contains(this.state.choices, session.course);
     });
     console.log(sessionsToView, this.state);

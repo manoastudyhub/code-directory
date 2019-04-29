@@ -6,7 +6,7 @@ import { withRouter, Link } from 'react-router-dom';
 import { Bert } from 'meteor/themeteorchef:bert';
 
 function addAttending(name) {
-  this.props.session.attending.push(name);
+  this.props.sessions._id.attending.push(name);
 }
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
