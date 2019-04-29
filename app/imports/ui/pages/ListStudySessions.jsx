@@ -19,7 +19,7 @@ const options = [
     { key: 'American Studies (AMST)', text: 'American Studies (AMST)', value: 'American Studies (AMST)' },
     { key: 'Anatomy (ANAT)', text: 'Anatomy (ANAT)', value: 'Anatomy (ANAT)' },
     { key: 'Animal Sciences (ANSC)', text: 'Animal Sciences (ANSC)', value: 'Animal Sciences (ANSC)' },
-                            { key: 'Anthropology (ANTH)', text: 'Anthropology (ANTH)', value: 'Anthropology (ANTH)' },
+    { key: 'Anthropology (ANTH)', text: 'Anthropology (ANTH)', value: 'Anthropology (ANTH)' },
     { key: 'Arabic (ARAB)', text: 'Arabic (ARAB)', value: 'Arabic (ARAB)' },
     { key: 'Architecture (ARCH)', text: 'Architecture (ARCH)', value: 'Architecture (ARCH)' },
     { key: 'Art and Art History (ART)', text: 'Art and Art History (ART)', value: 'Art and Art History (ART)' },
@@ -265,8 +265,8 @@ class ListStudySessions extends React.Component {
     return (
         <div className="manoastudyhub-landing-background">
           <Container>
-            <Header as="h2" textAlign="center">List Study Sessions</Header>
-            <Dropdown placeholder='send help...' multiple selection options={options}/>
+            <Header as="h2" textAlign="center" >List Study Sessions</Header>
+            <Dropdown placeholder='Select a Course to Search for...' multiple selection options={options}/>
             <Card.Group>
               {this.props.sessions.map((session, index) => <StudySession key={index} session={session}/>)}
             </Card.Group>
