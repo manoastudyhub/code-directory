@@ -5,6 +5,7 @@ import { Bert } from 'meteor/themeteorchef:bert';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
 import LongTextField from 'uniforms-semantic/LongTextField';
+import SelectField from 'uniforms-semantic/SelectField';
 import SubmitField from 'uniforms-semantic/SubmitField';
 import HiddenField from 'uniforms-semantic/HiddenField';
 import ErrorsField from 'uniforms-semantic/ErrorsField';
@@ -42,7 +43,7 @@ class EditProfile extends React.Component {
               <Segment>
                 <TextField name='image'/>
                 <TextField name='major'/>
-                <TextField name='classStanding'/>
+                <SelectField name='classStanding'/>
                 <TextField name='subject1'/>
                 <TextField name='subject2'/>
                 <TextField name='subject3'/>

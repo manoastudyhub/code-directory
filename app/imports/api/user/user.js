@@ -10,7 +10,11 @@ const UserSchema = new SimpleSchema({
   firstName: String,
   lastName: String,
   owner: String,
-  classStanding: String,
+  classStanding: {
+    type: String,
+    allowedValues: ['Freshman', 'Sophomore', 'Junior', 'Senior'],
+    defaultValue: 'Freshman',
+  },
   image: String,
   major: String,
   subject1: { type: String, optional: true },
