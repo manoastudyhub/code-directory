@@ -13,6 +13,7 @@
       "image": "https://semantic-ui.com/images/avatar2/large/kristy.png",
       "major": "Accounting (ACC)",
       "description": "My name is John",
+      "subjects": ["Accounting (ACC)", "Biology (BIOL)", ""],
       "tutor": false
     },
     {
@@ -23,6 +24,7 @@
       "image": "https://semantic-ui.com/images/avatar2/large/matthew.png",
       "major": "Accounting (ACC)",
       "description": "My name is James",
+      "subjects": ["Accounting (ACC)", "Biology (BIOL)", ""],
       "tutor": false
     }
   ],

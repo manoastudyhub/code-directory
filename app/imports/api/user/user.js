@@ -16,7 +16,8 @@ const UserSchema = new SimpleSchema({
   subject1: {type: String, optional: true},
   subject2: {type: String, optional: true},
   subject3: {type: String, optional: true},
-  subjects: {type: Object, optional: true},
+  subjects: {type: Array, optional: true},
+  'subjects.$': String,
   description: {type: String, optional: true},
   tutor: Boolean,
 }, { tracker: Tracker });
