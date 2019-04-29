@@ -44,9 +44,9 @@ class EditProfile extends React.Component {
                 <TextField name='image'/>
                 <TextField name='major'/>
                 <SelectField name='classStanding'/>
-                <TextField name='subject1'/>
-                <TextField name='subject2'/>
-                <TextField name='subject3'/>
+                <SelectField name='subject1' label={'Subject 1'}/>
+                <SelectField name='subject2' label={'Subject 2'}/>
+                <SelectField name='subject3' label={'Subject 3'}/>
                 <LongTextField name='description'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
