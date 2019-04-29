@@ -5,6 +5,10 @@ import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 import { Bert } from 'meteor/themeteorchef:bert';
 
+function addAttending(name) {
+  this.props.session.attending.push(name);
+}
+
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class StudySession extends React.Component {
 
@@ -18,6 +22,7 @@ class StudySession extends React.Component {
     const example = this.state.example;
     this.setState({ example: !example });
     console.log(this.state.session.attending.map(Meteor.user().username));
+    addAttending(Meteor.user().username);
   }
 
   renderElement() {
