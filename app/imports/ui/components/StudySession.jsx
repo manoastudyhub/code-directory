@@ -17,6 +17,7 @@ class StudySession extends React.Component {
   changeState() {
     const example = this.state.example;
     this.setState({ example: !example });
+    console.log(this.state.session.attending.map(Meteor.user().username));
   }
 
   renderElement() {

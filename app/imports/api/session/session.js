@@ -13,8 +13,6 @@ const SessionSchema = new SimpleSchema({
   location: String,
   owner: String,
   description: String,
-  attending: Array,
-    'attending.$': String,
   course: {
     type: String,
     allowedValues: ['...',
