@@ -87,7 +87,7 @@ export default class Signup extends React.Component {
               <Header as="h2" textAlign="center">
                 Register your account
               </Header>
-              <Form onSubmit={this.handleSubmit} error={this.state.error}>
+              <Form onSubmit={this.handleSubmit} >
                 <Segment stacked>
                   <Form.Input
                       label="Email"
@@ -156,8 +156,6 @@ export default class Signup extends React.Component {
                   />
                   <Form.Select
                         label="Major"
-                        icon="book"
-                        iconPosition="left"
                         name="major"
                         options={majorOptions}
                         type="major"

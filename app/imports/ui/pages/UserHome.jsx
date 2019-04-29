@@ -16,7 +16,7 @@ function returnCurrentUser(userArray, user){
 }
 
 class UserHome extends React.Component {
-  
+
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
   }
@@ -46,12 +46,12 @@ class UserHome extends React.Component {
             </Grid.Column>
           </Grid>
           <br/><Divider/>
-          <Container centered>
+          <Container>
             <Header as="h2">Upcoming Study Sessions</Header>
             <List divided verticalAlign='middle'>
               {this.props.sessions.map((session, index) => 
                 (session.attending.indexOf(this.props.currentUser)>-1) ? (
-                <List.Item>
+                <List.Item key={index}>
                     <List.Content floated='right'>
                       <Modal size="mini" trigger={<Button>View Session</Button>} closeIcon>
                         <Modal.Content>
@@ -69,7 +69,7 @@ class UserHome extends React.Component {
             <Grid columns={3}>
               {
                 this.props.users.map((user, index) => 
-                  ((user.owner!=this.props.currentUser) && (returnCurrentUser(this.props.users, this.props.currentUser)).major == user.major) ? (
+                  ((user.owner!=this.props.currentUser) && (returnCurrentUser(this.props.users, this.props.currentUser)) == user.major) ? (
                       <Grid.Column key={index}>
                         <User user={user} key={index} />
                       </Grid.Column>
