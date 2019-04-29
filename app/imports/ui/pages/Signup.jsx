@@ -77,11 +77,7 @@ export default class Signup extends React.Component {
               <Header as="h2" textAlign="center">
                 Register your account
               </Header>
-<<<<<<< HEAD
-              <Form onSubmit={this.handleSubmit} >
-=======
               <Form onSubmit={this.handleSubmit}>
->>>>>>> parent of e063296... Merge branch 'issue-38' into issue-27
                 <Segment stacked>
                   <Form.Input
                       label="Email"

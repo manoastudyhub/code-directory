@@ -62,17 +62,6 @@
       "description": "A study group for those in the Biol 340 class to study for the final.",
       "course": "Biology (BIOL)",
       "courseNum": "340"
-    },
-    {
-      "firstName": "John",
-      "lastName": "Smith",
-      "createdBy": "John Doe",
-      "date": "4/17/19",
-      "location": "Paradise Palms",
-      "owner": "admin@foo.com",
-      "description": "A study session request for someone who can help with writing an essay for Linguistics 102.",
-      "course": "Linguistics (LING)",
-      "courseNum": "102"
     }
   ]
 }
