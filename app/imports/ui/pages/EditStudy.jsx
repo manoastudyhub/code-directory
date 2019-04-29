@@ -53,6 +53,7 @@ class EditStudy extends React.Component {
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
                 <HiddenField name='owner' />
+                <HiddenField name='attending' value='username'/>
               </Segment>
             </AutoForm>
           </Grid.Column>

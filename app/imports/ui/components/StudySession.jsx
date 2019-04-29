@@ -1,5 +1,5 @@
-
 import React from 'react';
+import { Meteor } from 'meteor/meteor';
 import { Card, Image, Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
@@ -17,6 +17,13 @@ class StudySession extends React.Component {
   changeState() {
     const example = this.state.example;
     this.setState({ example: !example });
+  }
+
+  renderElement() {
+    if (this.props.session.owner === Meteor.user().username) {
+      return <Link to={`/edit/${this.props.session._id}`}>Edit</Link>;
+    }
+    return null;
   }
 
   render() {
@@ -49,9 +56,9 @@ class StudySession extends React.Component {
               {this.state.example === false ? null : Bert.alert({ type: 'success', message: 'Session Added!' })}
             </div>
           </Card.Content>
-          <Card.Content extra>
-            <Link to={`/edit/${this.props.session._id}`}>Edit</Link>
-          </Card.Content>
+            <Card.Content extra>
+              {this.renderElement()}
+            </Card.Content>
         </Card>
     );
   }

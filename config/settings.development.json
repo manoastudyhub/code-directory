@@ -49,7 +49,7 @@
       "date": "4/5/19",
       "location": "Hamilton Library Study Room 301",
       "owner": "john@foo.com",
-      "attending": "john@foo.com",
+      "attending": ["john@foo.com"],
       "description": "A study group for those in the Biol 375.",
       "course": "Biology (BIOL)",
       "courseNum": "340"
@@ -73,7 +73,7 @@
       "date": "4/10/19",
       "location": "Campus Center",
       "owner": "james@foo.com",
-      "attending": "james@foo.com",
+      "attending": ["james@foo.com"],
       "description": "A study group for those in the Biol 340 class to study for the final.",
       "course": "Biology (BIOL)",
       "courseNum": "340"
@@ -85,6 +85,7 @@
       "date": "4/17/19",
       "location": "Paradise Palms",
       "owner": "admin@foo.com",
+      "attending": ["james@foo.com"],
       "description": "A study session request for someone who can help with writing an essay for Linguistics 102.",
       "course": "Linguistics (LING)",
       "courseNum": "102"
