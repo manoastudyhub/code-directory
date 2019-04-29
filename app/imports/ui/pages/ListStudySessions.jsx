@@ -7,9 +7,7 @@ import PropTypes from 'prop-types';
 import StudySession from '/imports/ui/components/StudySession';
 
 const options = [
-  { key: 'angular', text: 'Angular', value: 'angular' },
-  { key: 'css', text: 'CSS', value: 'css' },
-  [{ key: '...', text: '...', value: '...' },
+    { key: '...', text: '...', value: '...' },
     { key: 'Academy for Creative Media (ACM)', text: 'Academy for Creative Media (ACM)',
       value: 'Academy for Creative Media (ACM)' },
     { key: 'Accounting (ACC)', text: 'Accounting (ACC)', value: 'Accounting (ACC)' },
@@ -252,7 +250,6 @@ const options = [
     { key: 'Vietnamese (VIET)', text: 'Vietnamese (VIET)', value: 'Vietnamese (VIET)' },
     { key: 'Women’s Studies (WS)', text: 'Women’s Studies (WS)', value: 'Women’s Studies (WS)' },
     { key: 'Zoology (ZOOL)', text: 'Zoology (ZOOL)', value: 'Zoology (ZOOL)' },
-  ],
 ];
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
