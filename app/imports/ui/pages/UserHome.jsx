@@ -15,9 +15,24 @@ function returnCurrentUser(userArray, user){
   return(userArray.find(x => x.owner == user))
 }
 
-
 class UserHome extends React.Component {
-  
+  state = {
+    events: [{}],
+  };
+  eventData() {
+    const filtering = _.filter(this.props.sessions, function (num) { return num.attending.indexOf(Meteor.user().username) > -1; });
+    const events = _.map(filtering, (s) => {
+        return {
+          title: s.course,
+          start: s.date,
+        };
+    });
+    this.setState({
+      // update a property
+      events: events,
+    });
+  }
+
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
   }
