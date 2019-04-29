@@ -14,6 +14,14 @@ class Profile extends React.Component {
     return (tutorret);
   }
 
+  subjectCheck(sub) {
+    let subreturn;
+    if (sub !== '...') {
+      subreturn = <h3>{sub}</h3>;
+    }
+    return subreturn;
+  }
+
   render() {
     return (
         <Grid centered>
@@ -44,9 +52,9 @@ class Profile extends React.Component {
           <Grid.Row>
             <Grid.Column textAlign="center" width={8}>
               <h2>Subjects: </h2>
-              <h3>{this.props.user.subject1}</h3>
-              <h3>{this.props.user.subject2}</h3>
-              <h3>{this.props.user.subject3}</h3>
+              {this.subjectCheck(this.props.user.subject1)}
+              {this.subjectCheck(this.props.user.subject2)}
+              {this.subjectCheck(this.props.user.subject3)}
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>
