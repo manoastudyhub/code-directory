@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Loader, Header, Segment, Form } from 'semantic-ui-react';
+import { Grid, Loader, Header, Segment, Form, Link } from 'semantic-ui-react';
 import { Sessions, SessionSchema } from '/imports/api/session/session';
 import { Bert } from 'meteor/themeteorchef:bert';
 import AutoForm from 'uniforms-semantic/AutoForm';
@@ -12,6 +12,7 @@ import ErrorsField from 'uniforms-semantic/ErrorsField';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
+import { Menu } from 'semantic-ui-react/dist/commonjs/collections/Menu';
 
 /** Renders the Page for editing a single document. */
 class EditStudy extends React.Component {
