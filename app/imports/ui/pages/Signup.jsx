@@ -62,7 +62,13 @@ export default class Signup extends React.Component {
 
       }
     });
-    Users.insert({firstName: firstName, lastName: lastName, owner: email, classStanding: classStanding, image: image, major: major, subject1: subject1, subject2: subject2, subject3: subject3, subjects: subjects, description: description, tutor: tutor, });
+    Users.insert(
+      {firstName: firstName, lastName: lastName, owner: email, classStanding: classStanding, image: image, major: major, subject1: subject1, subject2: subject2, subject3: subject3, subjects: subjects, description: description, tutor: tutor, },
+      (err) => {
+        if(err){
+          this.setState({error: err.reason});
+        } else{}
+      });
   }
 
   handleSubjectsChange(e,{name, value}){
@@ -81,7 +87,7 @@ export default class Signup extends React.Component {
               <Header as="h2" textAlign="center">
                 Register your account
               </Header>
-              <Form onSubmit={this.handleSubmit}>
+              <Form onSubmit={this.handleSubmit} error={this.state.error}>
                 <Segment stacked>
                   <Form.Input
                       label="Email"
@@ -90,6 +96,7 @@ export default class Signup extends React.Component {
                       name="email"
                       type="email"
                       placeholder="E-mail address"
+                      required={true}
                       onChange={this.handleChange}
                   />
                   <Form.Input
@@ -99,6 +106,7 @@ export default class Signup extends React.Component {
                       name="password"
                       placeholder="Password"
                       type="password"
+                      required={true}
                       onChange={this.handleChange}
                   />
                   <Grid columns={2}>
@@ -110,6 +118,7 @@ export default class Signup extends React.Component {
                         name="firstName"
                         placeholder="John"
                         type="firstName"
+                        required={true}
                         onChange={this.handleChange}
                     />
                     </Grid.Column>
@@ -121,6 +130,7 @@ export default class Signup extends React.Component {
                         name="lastName"
                         placeholder="Foo"
                         type="lastName"
+                        required={true}
                         onChange={this.handleChange}
                     />
                     </Grid.Column>
@@ -131,6 +141,7 @@ export default class Signup extends React.Component {
                       placeholder="Class Standing"
                       name="classStanding"
                       type="classStanding"
+                      required={true}
                       onChange={this.handleChange}
                   />
                   <Form.Input
@@ -140,6 +151,7 @@ export default class Signup extends React.Component {
                         name="image"
                         placeholder="Image"
                         type=""
+                        required={true}
                         onChange={this.handleChange}
                   />
                   <Form.Select
@@ -149,6 +161,7 @@ export default class Signup extends React.Component {
                         name="major"
                         options={majorOptions}
                         type="major"
+                        required={true}
                         onChange={this.handleChange}
                   />
                   <Form.Select 
@@ -179,7 +192,14 @@ export default class Signup extends React.Component {
                         name="description" 
                         onChange={this.handleChange}
                   />
-                  
+                  <Form.Select
+                        label="Are You a Tutor?"
+                        type="tutor"
+                        name="tutor"
+                        options={[{key:"Yes", text: "Yes", value: true}, {key:"No", text:"No", value:false}]}
+                        required={true}
+                        onChange={this.handleChange}
+                  />
                   <Form.Button content="Submit"/>
                 </Segment>
               </Form>
