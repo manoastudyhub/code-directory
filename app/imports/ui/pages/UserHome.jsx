@@ -69,12 +69,18 @@ class UserHome extends React.Component {
             <Grid columns={3}>
               {
                 this.props.users.map((user, index) => 
-                  ((user.owner!=this.props.currentUser) && (returnCurrentUser(this.props.users, this.props.currentUser)) == user.major) ? (
+                  ((user.owner!=this.props.currentUser) && (returnCurrentUser(this.props.users, this.props.currentUser)).major == user.major) ? (
                       <Grid.Column key={index}>
                         <User user={user} key={index} />
                       </Grid.Column>
                   ) : ('')
                 )
+              }
+            </Grid>
+            <Header as="h2">Other Students Taking Similar Subjects</Header>
+            <Grid columns={3}>
+              {
+                
               }
             </Grid>
           </Container>
