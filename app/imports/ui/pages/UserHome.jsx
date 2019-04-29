@@ -16,23 +16,7 @@ function returnCurrentUser(userArray, user){
 }
 
 class UserHome extends React.Component {
-  state = {
-    events: [{}],
-  };
-  eventData() {
-    const filtering = _.filter(this.props.sessions, function (num) { return num.attending.indexOf(Meteor.user().username) > -1; });
-    const events = _.map(filtering, (s) => {
-        return {
-          title: s.course,
-          start: s.date,
-        };
-    });
-    this.setState({
-      // update a property
-      events: events,
-    });
-  }
-
+  
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
   }
@@ -65,7 +49,9 @@ class UserHome extends React.Component {
           <Container centered>
             <Header as="h2">Upcoming Study Sessions</Header>
             <List divided verticalAlign='middle'>
-              {this.props.sessions.map((session, index) => <List.Item>
+              {this.props.sessions.map((session, index) => 
+                (session.attending.indexOf(this.props.currentUser)>-1) ? (
+                <List.Item>
                     <List.Content floated='right'>
                       <Modal size="mini" trigger={<Button>View Session</Button>} closeIcon>
                         <Modal.Content>
@@ -75,7 +61,8 @@ class UserHome extends React.Component {
                     </List.Content>
                     <List.Content>{'Location: ' + session.location}</List.Content>
                     <List.Content>{'Date: ' + session.date}</List.Content>
-                  </List.Item>)
+                  </List.Item>) : ('')
+                )
               }
             </List>
             <Header as="h2">Other Students With The Same Major</Header>
