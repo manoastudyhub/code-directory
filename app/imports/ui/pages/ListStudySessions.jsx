@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Container, Header, Loader, Card } from 'semantic-ui-react';
@@ -19,12 +18,12 @@ class ListStudySessions extends React.Component {
   renderPage() {
     return (
         <div className="manoastudyhub-landing-background">
-        <Container>
-          <Header as="h2" textAlign="center">List Study Sessions</Header>
-          <Card.Group>
-            {this.props.sessions.map((session, index) => <StudySession key={index} session={session} />)}
-          </Card.Group>
-        </Container>
+          <Container>
+            <Header as="h2" textAlign="center">List Study Sessions</Header>
+            <Card.Group>
+              {this.props.sessions.map((session, index) => <StudySession key={index} session={session} />)}
+            </Card.Group>
+          </Container>
         </div>
     );
   }

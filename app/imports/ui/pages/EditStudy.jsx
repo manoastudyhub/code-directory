@@ -1,11 +1,12 @@
 import React from 'react';
-import { Grid, Loader, Header, Segment } from 'semantic-ui-react';
+import { Grid, Loader, Header, Segment, Form } from 'semantic-ui-react';
 import { Sessions, SessionSchema } from '/imports/api/session/session';
 import { Bert } from 'meteor/themeteorchef:bert';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
 import LongTextField from 'uniforms-semantic/LongTextField';
 import SubmitField from 'uniforms-semantic/SubmitField';
+import SelectField from 'uniforms-semantic/SelectField';
 import HiddenField from 'uniforms-semantic/HiddenField';
 import ErrorsField from 'uniforms-semantic/ErrorsField';
 import { Meteor } from 'meteor/meteor';
@@ -17,9 +18,9 @@ class EditStudy extends React.Component {
 
   /** On successful submit, insert the data. */
   submit(data) {
-    const { firstName, lastName, createdBy, date, location, description, course, _id } = data;
+    const { firstName, lastName, date, location, description, course, courseNum, _id } = data;
     Sessions.update(_id, { $set: {
-        firstName, lastName, createdBy, date, location, description, course } }, (error) => (error ?
+        firstName, lastName, date, location, description, course, courseNum } }, (error) => (error ?
         Bert.alert({ type: 'danger', message: `Update failed: ${error.message}` }) :
         Bert.alert({ type: 'success', message: 'Update succeeded' })));
   }
@@ -38,13 +39,17 @@ class EditStudy extends React.Component {
             <Header as="h2" textAlign="center">Edit Study Session</Header>
             <AutoForm schema={SessionSchema} onSubmit={this.submit} model={this.props.doc}>
               <Segment>
+                <Form.Group widths='equal'>
                 <TextField name='firstName'/>
                 <TextField name='lastName'/>
-                <TextField name='createdBy'/>
+                </Form.Group>
                 <TextField name='date'/>
                 <TextField name='location'/>
                 <LongTextField name='description'/>
-                <TextField name='course'/>
+                <Form.Group widths='equal'>
+                <SelectField name='course'/>
+                <TextField name='courseNum'/>
+                </Form.Group>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
                 <HiddenField name='owner' />
