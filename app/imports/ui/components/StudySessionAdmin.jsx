@@ -6,19 +6,23 @@ import { Bert } from 'meteor/themeteorchef:bert';
 import { Sessions } from '/imports/api/session/session';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
+
 class StudySessionAdmin extends React.Component {
 
   constructor() {
     super();
     this.state = {
       example: false };
+    this.deleteSession = this.deleteSession.bind(this);
   }
 
   changeState() {
     const example = this.state.example;
     this.setState({ example: !example });
   }
-  
+  deleteSession(){
+    Sessions.remove(this.props.session._id);
+  }
 
   render() {
     return (
@@ -46,22 +50,22 @@ class StudySessionAdmin extends React.Component {
             </Card.Description>
           </Card.Content>
           <Card.Content extra>
-            <div>
-                <Modal size="mini" trigger={<Button>View Attendees</Button>} closeIcon>
-                  <Modal.Content>
-                    <List>
-                      {this.props.session.attending.map((attendee, index) =>
-                        <List.Item key={index}>{attendee}</List.Item>)
-                      }
-                    </List>
-                  </Modal.Content>
-                </Modal>
-            </div>
-          </Card.Content>
-          <Card.Content extra>
-            <Link to={`/edit/${this.props.session._id}`}>Edit</Link>
-            <br />
-            <Link to={`/deleteSession/${this.props.session._id}`}>Delete</Link>
+          <Button.Group>
+              <div>
+                  <Modal size="mini" trigger={<Button basic color='green'>View Attendees</Button>} closeIcon>
+                    <Modal.Content>
+                      <List>
+                        {this.props.session.attending.map((attendee, index) =>
+                          <List.Item key={index}>{attendee}</List.Item>)
+                        }
+                      </List>
+                    </Modal.Content>
+                  </Modal>
+              </div>
+              <Button basic color='blue'><Link to={`/edit/${this.props.session._id}`}>Edit</Link></Button>
+              <br />
+              <Button onClick={this.deleteSession} basic color='red'>Delete</Button>
+            </Button.Group>
           </Card.Content>
         </Card>
     );
@@ -71,7 +75,6 @@ class StudySessionAdmin extends React.Component {
 /** Require a document to be passed to this component. */
 StudySessionAdmin.propTypes = {
   session: PropTypes.object.isRequired,
-  sessions: PropTypes.array.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */

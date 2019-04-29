@@ -26,7 +26,7 @@ class AdminHome extends React.Component {
             <Header as="h2">Study Sessions</Header>
             <List divided verticalAlign='middle'>
               {this.props.sessions.map((session, index)=>
-                  <List.Item>
+                  <List.Item key={index}>
                     <List.Content floated='right'>
                       <Modal size="mini" trigger={<Button>View Session</Button>} closeIcon>
                         <Modal.Content>
@@ -43,7 +43,7 @@ class AdminHome extends React.Component {
             <Grid columns={3}>
               {this.props.users.map((user, index)=>
                   <Grid.Column>
-                    <UserAdmin user={user} key={index} notes={index} />
+                    <UserAdmin user={user} key={index}/>
                   </Grid.Column>
               )}
             </Grid>

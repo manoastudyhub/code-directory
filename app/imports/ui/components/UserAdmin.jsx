@@ -1,11 +1,20 @@
 
 import React from 'react';
-import { Image, Card, List } from 'semantic-ui-react';
+import { Image, Card, List, Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
+import { Users } from '/imports/api/user/user';
+
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class UserAdmin extends React.Component {
+  constructor(){
+    super();
+    this.deleteUser = this.deleteUser.bind(this);
+  }
+  deleteUser(){
+    Users.remove(this.props.user._id);
+  }
   render() {
     return (
         <Card>
@@ -26,6 +35,9 @@ class UserAdmin extends React.Component {
                 <List.Item>{this.props.user.subject3}</List.Item>
               </List>
           </Card.Content>
+          <Card.Content extra>
+            <Button onClick={this.deleteUser} basic color="red">Delete</Button>
+          </Card.Content>
         </Card>
     );
   }
@@ -34,7 +46,6 @@ class UserAdmin extends React.Component {
 /** Require a document to be passed to this component. */
 UserAdmin.propTypes = {
   user: PropTypes.object.isRequired,
-  notes: PropTypes.array.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */
