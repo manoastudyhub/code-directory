@@ -1,5 +1,4 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
@@ -15,7 +14,8 @@ import ErrorsField from 'uniforms-semantic/ErrorsField';
 import { Bert } from 'meteor/themeteorchef:bert';
 import { Sessions, SessionSchema } from '/imports/api/session/session';
 import { withTracker } from 'meteor/react-meteor-data';
-import { Grid, Segment, Header } from 'semantic-ui-react';
+import { Grid, Segment, Header, Form } from 'semantic-ui-react';
+import SelectField from 'uniforms-semantic/SelectField';
 
 
 // must manually import the stylesheets for each plugin
@@ -38,8 +38,6 @@ class CalendarApp extends React.Component {
   };
 
   eventData() {
-    // const test = _.map(this.props.sessions, (s) => s.attending);
-    // const filteringEvents = _.some(test, function (entry) { return entry.includes('Meteor.user().username'); });
     const filtering = _.filter(this.props.sessions, function (num) { return num.attending.indexOf(Meteor.user().username) > -1; });
     const events = _.map(filtering, (s) => {
         return {
@@ -75,12 +73,12 @@ class CalendarApp extends React.Component {
 
   /** On submit, insert the data. */
   submit(data) {
-    const { firstName, lastName, createdBy, location, description, course } = data;
+    const { firstName, lastName, createdBy, location, description, course, courseNum } = data;
     const { date } = this.state;
     const owner = Meteor.user().username;
     const attending = Meteor.user().username;
     Sessions.insert({
-      firstName, lastName, createdBy, date, location, description, attending, course, owner,
+      firstName, lastName, createdBy, date, location, description, attending, course, courseNum, owner,
     }, this.insertCallback);
   }
 
@@ -96,17 +94,21 @@ class CalendarApp extends React.Component {
                 <Header as="h2" textAlign="center">Add Study Session</Header>
                 <AutoForm ref={(ref) => { this.formRef = ref; }} schema={SessionSchema} onSubmit={this.submit}>
                   <Segment>
-                    <TextField name='firstName'/>
-                    <TextField name='lastName'/>
-                    <TextField name='createdBy'/>
+                    <Form.Group widths='equal'>
+                      <TextField name='firstName'/>
+                      <TextField name='lastName'/>
+                    </Form.Group>
                     <TextField name='location'/>
                     <LongTextField name='description'/>
-                    <TextField name='course'/>
+                    <Form.Group widths='equal'>
+                      <SelectField name='course'/>
+                      <TextField name='courseNum'/>
+                    </Form.Group>
                     <SubmitField value='Submit'/>
                     <ErrorsField/>
                     <HiddenField name='owner' value='fakeuser@foo.com'/>
-                    <HiddenField name='date' value='04/26/2019'/>
-                    <HiddenField name='attending' value='attended'/>
+                    <HiddenField name='attending' value='username'/>
+                    <HiddenField name='date' value='4/29/2019'/>
                   </Segment>
                 </AutoForm>
               </Grid.Column>
