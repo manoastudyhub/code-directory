@@ -1,8 +1,9 @@
 import React from 'react';
-import { Card, Image, Button } from 'semantic-ui-react';
+import { Card, Image, Button, List, Modal } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 import { Bert } from 'meteor/themeteorchef:bert';
+import { Sessions } from '/imports/api/session/session';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class StudySessionAdmin extends React.Component {
@@ -17,6 +18,7 @@ class StudySessionAdmin extends React.Component {
     const example = this.state.example;
     this.setState({ example: !example });
   }
+  
 
   render() {
     return (
@@ -45,16 +47,21 @@ class StudySessionAdmin extends React.Component {
           </Card.Content>
           <Card.Content extra>
             <div>
-              <Button basic color='green' onClick={this.changeState.bind(this)}>
-                Attend
-              </Button>
-              {this.state.example === false ? null : Bert.alert({ type: 'success', message: 'Session Added!' })}
+                <Modal size="mini" trigger={<Button>View Attendees</Button>} closeIcon>
+                  <Modal.Content>
+                    <List>
+                      {this.props.session.attending.map((attendee, index) =>
+                        <List.Item key={index}>{attendee}</List.Item>)
+                      }
+                    </List>
+                  </Modal.Content>
+                </Modal>
             </div>
           </Card.Content>
           <Card.Content extra>
             <Link to={`/edit/${this.props.session._id}`}>Edit</Link>
             <br />
-            <Link to={`/delete/${this.props.session._id}`}>Delete</Link>
+            <Link to={`/deleteSession/${this.props.session._id}`}>Delete</Link>
           </Card.Content>
         </Card>
     );
@@ -64,6 +71,7 @@ class StudySessionAdmin extends React.Component {
 /** Require a document to be passed to this component. */
 StudySessionAdmin.propTypes = {
   session: PropTypes.object.isRequired,
+  sessions: PropTypes.array.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */

@@ -30,7 +30,7 @@ class AdminHome extends React.Component {
                     <List.Content floated='right'>
                       <Modal size="mini" trigger={<Button>View Session</Button>} closeIcon>
                         <Modal.Content>
-                          <StudySessionAdmin session={session} key={index} />
+                          <StudySessionAdmin session={session} key={index}/>
                         </Modal.Content>
                       </Modal>
                     </List.Content>
@@ -39,7 +39,7 @@ class AdminHome extends React.Component {
                   </List.Item>
               )}
             </List>
-            <Header as="h2">Students</Header>
+            <Header as="h2">All Users</Header>
             <Grid columns={3}>
               {this.props.users.map((user, index)=>
                   <Grid.Column>

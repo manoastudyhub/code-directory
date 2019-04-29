@@ -48,7 +48,7 @@
       "date": "4/9/19",
       "location": "Campus Center",
       "owner": "john@foo.com",
-      "attending": ["john@foo.com", "james@foo.com"],
+      "attending": ["john@foo.com", "james@foo.com", "johnd@foo.com", "jamesf@foo.com", "johna@foo.com", "jamesb@foo.com", "johne@foo.com", "jamesq@foo.com", "johhn@foo.com", "jamejs@foo.com"],
       "description": "A study group for those in the Biol 340 class to study for the final.",
       "course": "Biology (BIOL)",
       "courseNum": "340"

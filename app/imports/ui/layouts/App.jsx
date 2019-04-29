@@ -21,6 +21,7 @@ import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
 import AdminHome from '../pages/AdminHome';
 import ListStudySessionsAdmin from '../pages/ListStudySessionsAdmin';
+import DeleteSession from '../pages/DeleteSession';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {

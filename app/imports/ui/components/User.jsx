@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Card } from 'semantic-ui-react';
+import { Image, Card, List } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
@@ -11,7 +11,6 @@ class User extends React.Component {
           <Card.Content>
             <Image floated='right' size='mini' src={this.props.user.image} />
             <Card.Header>{this.props.user.firstName} {this.props.user.lastName}</Card.Header>
-            <Card.Meta>{this.props.user.owner}</Card.Meta>
             <Card.Meta>{this.props.user.classStanding}</Card.Meta>
             <Card.Meta>{this.props.user.major}</Card.Meta>
             <Card.Description>
@@ -19,9 +18,11 @@ class User extends React.Component {
             </Card.Description>
           </Card.Content>
           <Card.Content extra>
-            <a>
-              {this.props.user.subject1}
-            </a>
+              <List>
+                <List.Item>{this.props.user.subject1}</List.Item>
+                <List.Item>{this.props.user.subject2}</List.Item>
+                <List.Item>{this.props.user.subject3}</List.Item>
+              </List>
           </Card.Content>
         </Card>
     );
