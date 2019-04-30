@@ -11,6 +11,7 @@ import ErrorsField from 'uniforms-semantic/ErrorsField';
 import { Bert } from 'meteor/themeteorchef:bert';
 import { Meteor } from 'meteor/meteor';
 import { Attends, AttendSchema } from '/imports/api/attend/attend';
+import { Users } from '/imports/api/user/user';
 
 /** Renders the Page for adding a document. */
 class AddStudySesh extends React.Component {
@@ -39,9 +40,10 @@ class AddStudySesh extends React.Component {
   submit(data) {
     const { firstName, lastName, createdBy, date, location, description, course, courseNum } = data;
     const owner = Meteor.user().username;
-    const sSessions.insert({
+    Sessions.insert({
       firstName, lastName, createdBy, date, location, description, course, courseNum, owner,
     }, this.insertCallback);
+    console.log(Attends.insert(this.Sessions._id, Meteor.users.username));
   }
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
