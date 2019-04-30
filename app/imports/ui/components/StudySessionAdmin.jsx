@@ -31,13 +31,10 @@ class StudySessionAdmin extends React.Component {
           <Card.Content>
             <Image floated='right' size='mini' src='https://react.semantic-ui.com/images/avatar/large/steve.jpg' />
             <Card.Header>
-              {this.props.session.course}
+              {this.props.session.course} {this.props.session.courseNum}
             </Card.Header>
             <Card.Meta>
-              Created By: {this.props.session.createdBy}
-            </Card.Meta>
-            <Card.Meta>
-              In collaboration with {this.props.session.firstName} {this.props.session.lastName}
+              Created By {this.props.session.firstName} {this.props.session.lastName}
             </Card.Meta>
             <Card.Meta>
               When: {this.props.session.date}

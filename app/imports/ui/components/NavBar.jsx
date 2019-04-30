@@ -34,7 +34,7 @@ class NavBar extends React.Component {
             [ <Menu.Item as={NavLink} activeClassName="" exact to="/adminHome" key='adminHome'>
                 <Header inverted as='h1'>Manoa Study Hub</Header>
               </Menu.Item>,
-              <Menu.Item as={NavLink} activeClassName="active" exact to="/calendar" key='calendar'>Calendar</Menu.Item>,
+              <Menu.Item as={NavLink} activeClassName="active" exact to="/calendarAdmin" key='calendarAdmin'>Calendar</Menu.Item>,
               <Menu.Item as={NavLink} activeClassName="active" exact to="/adminStudyList" key='adminList'>Admin Study List</Menu.Item>,
               <Menu.Item as={NavLink} activeClassName="active"
                          exact to="/add" key='add'>Add Study Session</Menu.Item>]

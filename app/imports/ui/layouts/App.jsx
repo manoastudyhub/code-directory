@@ -8,6 +8,7 @@ import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
 import Calendar from '../pages/FullCalendar';
+import CalendarAdmin from '../pages/FullCalendarAdmin';
 import ListStuff from '../pages/ListStuff';
 import ListStuffAdmin from '../pages/ListStuffAdmin';
 import UserPage from '../pages/UserHome';
@@ -38,6 +39,7 @@ class App extends React.Component {
               <ProtectedRoute path="/userPage" component={UserPage}/>
               <AdminProtectedRoute path="/adminHome" component={AdminHome}/>
               <ProtectedRoute path="/calendar" component={Calendar}/>
+              <AdminProtectedRoute path="/calendarAdmin" component={CalendarAdmin}/>
               <ProtectedRoute path="/profile" component={Profile}/>
               <ProtectedRoute path="/studyList" component={StudySession}/>
               <ProtectedRoute path="/add" component={AddSession}/>
