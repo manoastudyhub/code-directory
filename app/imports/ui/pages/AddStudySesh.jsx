@@ -49,7 +49,7 @@ class AddStudySesh extends React.Component {
         <div className="manoastudyhub-landing-background">
           <Grid container centered>
             <Grid.Column>
-              <Header as="h2" textAlign="center">Add Study Session</Header>
+              <Header as="h2" textAlign="center" inverted>Add Study Session</Header>
               <AutoForm ref={(ref) => {
                 this.formRef = ref;
               }} schema={SessionSchema} onSubmit={this.submit}>

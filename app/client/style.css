@@ -3,7 +3,6 @@
 .manoastudyhub-landing-background {
   background-color: #97C8EB;
   background-size: cover;
-  height: 700px;
   color: white;
   vertical-align: middle;
   padding-left: 50px;
@@ -12,6 +11,15 @@
 
 h3, .styledHeader{
   font-family: 'Averia Serif Libre';
+}
+
+h1, h2, h3 {
+  font-family: 'Averia Serif Libre';
+  margin: 20px;
+}
+
+.searchBar {
+  padding-bottom: 10px;
 }
 
 .manoastudyhub-calendar-background {

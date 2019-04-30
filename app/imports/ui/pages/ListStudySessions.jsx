@@ -287,10 +287,14 @@ class ListStudySessions extends React.Component {
     return (
         <div className="manoastudyhub-landing-background">
           <Container>
-            <Header as="h2" textAlign="center" >List Study Sessions</Header>
+            <div className="">
+            <Header as="h2" textAlign="center" inverted>List Study Sessions</Header>
+            </div>
+            <div className="searchBar">
             <Dropdown placeholder='Select a Course to Search for...' multiple selection options={options}
                       onChange={this.handleChange}/>
-            <Card.Group>
+            </div>
+            <Card.Group itemsPerRow={4}>
               {sessionsToView.map((session, index) => <StudySession key={index} session={session}/>)}
             </Card.Group>
           </Container>
