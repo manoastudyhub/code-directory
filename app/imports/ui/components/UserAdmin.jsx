@@ -13,7 +13,9 @@ class UserAdmin extends React.Component {
     this.deleteUser = this.deleteUser.bind(this);
   }
   deleteUser(){
-    Users.remove(this.props.user._id);
+    Users.remove(this.props.user._id,(error) => (error ?
+        Bert.alert({ type: 'danger', message: `Delete failed: ${error.message}` }) :
+        Bert.alert({ type: 'success', message: 'Delete succeeded' })));
   }
   render() {
     return (

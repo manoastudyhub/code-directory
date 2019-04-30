@@ -14,6 +14,9 @@
       "major": "Accounting (ACC)",
       "description": "My name is John",
       "subjects": ["Accounting (ACC)", "Biology (BIOL)", ""],
+      "subject1": "Accounting (ACC)",
+      "subject2": "Biology (BIOL)",
+      "subject3": "",
       "tutor": false
     },
     {
@@ -25,6 +28,9 @@
       "major": "Accounting (ACC)",
       "description": "My name is James",
       "subjects": ["Accounting (ACC)", "Biology (BIOL)", ""],
+      "subject1": "Accounting (ACC)",
+      "subject2": "Biology (BIOL)",
+      "subject3": "",
       "tutor": false
     }
   ],

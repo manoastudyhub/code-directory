@@ -21,7 +21,9 @@ class StudySessionAdmin extends React.Component {
     this.setState({ example: !example });
   }
   deleteSession(){
-    Sessions.remove(this.props.session._id);
+    Sessions.remove(this.props.session._id,(error) => (error ?
+        Bert.alert({ type: 'danger', message: `Delete failed: ${error.message}` }) :
+        Bert.alert({ type: 'success', message: 'Delete succeeded' })));
   }
 
   render() {
