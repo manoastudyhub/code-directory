@@ -47,30 +47,32 @@ class AddStudySesh extends React.Component {
   render() {
     return (
         <div className="manoastudyhub-landing-background">
-        <Grid container centered>
-          <Grid.Column>
-            <Header as="h2" textAlign="center">Add Study Session</Header>
-            <AutoForm ref={(ref) => { this.formRef = ref; }} schema={SessionSchema} onSubmit={this.submit}>
-              <Segment>
-                <Form.Group widths='equal'>
-                <TextField name='firstName'/>
-                <TextField name='lastName'/>
-                </Form.Group>
-                <TextField name='date'/>
-                <TextField name='location'/>
-                <LongTextField name='description'/>
-                <Form.Group widths='equal'>
-                <SelectField name='course'/>
-                <TextField name='courseNum'/>
-                </Form.Group>
-                <SubmitField value='Submit'/>
-                <ErrorsField/>
-                <HiddenField name='owner' value='fakeuser@foo.com'/>
-                <HiddenField name='attending' value='username'/>
-              </Segment>
-            </AutoForm>
-          </Grid.Column>
-        </Grid>
+          <Grid container centered>
+            <Grid.Column>
+              <Header as="h2" textAlign="center">Add Study Session</Header>
+              <AutoForm ref={(ref) => {
+                this.formRef = ref;
+              }} schema={SessionSchema} onSubmit={this.submit}>
+                <Segment>
+                  <Form.Group widths='equal'>
+                    <TextField name='firstName'/>
+                    <TextField name='lastName'/>
+                  </Form.Group>
+                  <TextField name='date'/>
+                  <TextField name='location'/>
+                  <LongTextField name='description'/>
+                  <Form.Group widths='equal'>
+                    <SelectField name='course'/>
+                    <TextField name='courseNum'/>
+                  </Form.Group>
+                  <SubmitField value='Submit'/>
+                  <ErrorsField/>
+                  <HiddenField name='owner' value='fakeuser@foo.com'/>
+                  <HiddenField name='attending' value='username'/>
+                </Segment>
+              </AutoForm>
+            </Grid.Column>
+          </Grid>
         </div>
     );
   }

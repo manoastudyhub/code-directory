@@ -5,6 +5,7 @@ import { Sessions } from '/imports/api/session/session';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import StudySession from '/imports/ui/components/StudySession';
+import { _ } from 'meteor/underscore';
 
 const options = [
     { key: '...', text: '...', value: '...' },
@@ -255,6 +256,18 @@ const options = [
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListStudySessions extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+    this.state = { choices: [] };
+  }
+
+  handleChange(event, instance) {
+    event.preventDefault();
+    console.log(instance.value, this.state);
+    this.setState({ choices: instance.value });
+  }
+
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
@@ -262,13 +275,23 @@ class ListStudySessions extends React.Component {
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
+    let sessionsToView = this.props.sessions;
+    sessionsToView = _.filter(sessionsToView, (session) => {
+      if (this.state.choices.length === 0) {
+        return true;
+      }
+      console.log(session.course, this.state.choices);
+        return _.contains(this.state.choices, session.course);
+    });
+    console.log(sessionsToView, this.state);
     return (
         <div className="manoastudyhub-landing-background">
           <Container>
             <Header as="h2" textAlign="center" >List Study Sessions</Header>
-            <Dropdown placeholder='Select a Course to Search for...' multiple selection options={options}/>
+            <Dropdown placeholder='Select a Course to Search for...' multiple selection options={options}
+                      onChange={this.handleChange}/>
             <Card.Group>
-              {this.props.sessions.map((session, index) => <StudySession key={index} session={session}/>)}
+              {sessionsToView.map((session, index) => <StudySession key={index} session={session}/>)}
             </Card.Group>
           </Container>
         </div>

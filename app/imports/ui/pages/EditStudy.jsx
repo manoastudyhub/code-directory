@@ -18,9 +18,9 @@ class EditStudy extends React.Component {
 
   /** On successful submit, insert the data. */
   submit(data) {
-    const { firstName, lastName, date, location, description, course, courseNum, _id } = data;
+    const { firstName, lastName, date, location, description, attending, course, courseNum, _id } = data;
     Sessions.update(_id, { $set: {
-        firstName, lastName, date, location, description, course, courseNum } }, (error) => (error ?
+        firstName, lastName, date, location, description, attending, course, courseNum } }, (error) => (error ?
         Bert.alert({ type: 'danger', message: `Update failed: ${error.message}` }) :
         Bert.alert({ type: 'success', message: 'Update succeeded' })));
   }
