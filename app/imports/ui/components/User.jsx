@@ -1,7 +1,7 @@
 import React from 'react';
-import { Image, Card, List } from 'semantic-ui-react';
+import { Image, Card, List, Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class User extends React.Component {
@@ -23,6 +23,11 @@ class User extends React.Component {
                 <List.Item>{this.props.user.subject2}</List.Item>
                 <List.Item>{this.props.user.subject3}</List.Item>
               </List>
+          </Card.Content>
+          <Card.Content extra textAlign={'center'}>
+            <Button as={Link} to={`/otherprofile/${this.props.user._id}`}>
+              View Profile
+            </Button>
           </Card.Content>
         </Card>
     );

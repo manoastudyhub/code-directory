@@ -11,6 +11,7 @@ import Calendar from '../pages/FullCalendar';
 import CalendarAdmin from '../pages/FullCalendarAdmin';
 import ListStuff from '../pages/ListStuff';
 import AttendSession from '../pages/Attend';
+import OtherProfile from '../pages/OtherProfile';
 import UserPage from '../pages/UserHome';
 import Profile from '../pages/UserProfile';
 import EditProfile from '../pages/EditProfile';
@@ -41,6 +42,7 @@ class App extends React.Component {
               <ProtectedRoute path="/calendar" component={Calendar}/>
               <AdminProtectedRoute path="/calendarAdmin" component={CalendarAdmin}/>
               <ProtectedRoute path="/profile" component={Profile}/>
+              <ProtectedRoute path="/otherprofile/:_id" component={OtherProfile}/>
               <ProtectedRoute path="/studyList" component={StudySession}/>
               <ProtectedRoute path="/add" component={AddSession}/>
               <ProtectedRoute path="/attend/:_id" component={AttendSession}/>

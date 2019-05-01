@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Meteor } from 'meteor/meteor';
 import { Image, Grid, Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
@@ -20,6 +21,18 @@ class Profile extends React.Component {
       subreturn = <h3>{sub}</h3>;
     }
     return subreturn;
+  }
+
+  isThisMine(name) {
+    let retMine;
+    if (name === Meteor.user().username) {
+      retMine = (
+          <Button as={Link} to={`/editprofile/${this.props.user._id}`}>
+          Edit Profile
+          </Button>
+      );
+    }
+    return retMine;
   }
 
   render() {
@@ -71,9 +84,7 @@ class Profile extends React.Component {
           </Grid.Row>
           <Grid.Row>
             <Grid.Column textAlign="center" width={8}>
-              <Button>
-                <Link to={`/editprofile/${this.props.user._id}`}>Edit Profile</Link>
-              </Button>
+              {this.isThisMine(this.props.user.owner)}
             </Grid.Column>
           </Grid.Row>
         </Grid>
