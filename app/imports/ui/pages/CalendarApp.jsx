@@ -36,22 +36,6 @@ class CalendarApp extends React.Component {
     argdate: '04/26/2019',
   };
 
-  eventData() {
-    // const test = _.map(this.props.sessions, (s) => s.attending);
-    // const filteringEvents = _.some(test, function (entry) { return entry.includes('Meteor.user().username'); });
-    const filtering = _.filter(this.props.sessions, function (num) { return num.attending.indexOf(Meteor.user().username) > -1; });
-    const events = _.map(filtering, (s) => {
-        return {
-          title: s.course,
-          start: s.date,
-        };
-    });
-
-    this.setState({
-      // update a property
-      calendarEvents: events,
-    });
-  }
 
   /** Bind 'this' so that a ref to the Form can be saved in formRef and communicated between render() and submit(). */
   constructor(props) {
@@ -74,12 +58,12 @@ class CalendarApp extends React.Component {
 
   /** On submit, insert the data. */
   submit(data) {
-    const { firstName, lastName, createdBy, location, description, course } = data;
+    const { firstName, lastName, location, description, course } = data;
     const { date } = this.state;
     const owner = Meteor.user().username;
     const attending = Meteor.user().username;
     Sessions.insert({
-      firstName, lastName, createdBy, date, location, description, attending, course, owner,
+      firstName, lastName, date, location, description, attending, course, owner,
     }, this.insertCallback);
   }
 
@@ -97,7 +81,6 @@ class CalendarApp extends React.Component {
                   <Segment>
                     <TextField name='firstName'/>
                     <TextField name='lastName'/>
-                    <TextField name='createdBy'/>
                     <TextField name='location'/>
                     <LongTextField name='description'/>
                     <TextField name='course'/>
@@ -140,6 +123,23 @@ class CalendarApp extends React.Component {
           </div>
         </div>
     );
+  }
+
+  eventData() {
+    // const test = _.map(this.props.sessions, (s) => s.attending);
+    // const filteringEvents = _.some(test, function (entry) { return entry.includes('Meteor.user().username'); });
+    const filtering = _.filter(this.props.sessions, (session) => { return session.attending.indexOf(Meteor.user().username) > -1; });
+    const events = _.map(filtering, (s) => {
+      return {
+        title: s.course,
+        start: s.date,
+      };
+    });
+
+    this.setState({
+      // update a property
+      calendarEvents: events,
+    });
   }
 
   toggleWeekends = () => {

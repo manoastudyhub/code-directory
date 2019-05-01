@@ -35,11 +35,11 @@ class AddStudySesh extends React.Component {
 
   /** On submit, insert the data. */
   submit(data) {
-    const { firstName, lastName, createdBy, date, location, description, course, courseNum } = data;
+    const { firstName, lastName, date, location, description, course, courseNum } = data;
     const owner = Meteor.user().username;
     const attending = Meteor.user().username;
     Sessions.insert({
-      firstName, lastName, createdBy, date, location, description, attending, course, courseNum, owner,
+      firstName, lastName, date, location, description, attending, course, courseNum, owner,
     }, this.insertCallback);
   }
 
