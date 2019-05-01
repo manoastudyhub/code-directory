@@ -3,21 +3,19 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Users } from '/imports/api/user/user';
 import UserAdmin from '/imports/ui/components/UserAdmin';
-import { Tutors } from '/imports/api/tutor/tutor';
-import Tutor from '/imports/ui/components/Tutor';
 import { Sessions } from '/imports/api/session/session';
 import StudySessionAdmin from '/imports/ui/components/StudySessionAdmin';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import 'semantic-ui-css/semantic.min.css';
-import { withRouter, NavLink } from 'react-router-dom';
-import { Container, Header, Menu, Image, Icon, Button, Grid, List, Divider, Item, Loader, Modal } from 'semantic-ui-react';
+import { Container, Header, Button, Grid, List, Divider, Loader, Modal } from 'semantic-ui-react';
 
 class AdminHome extends React.Component {
 
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
   }
+
   renderPage() {
     return (
         <div className="manoastudyhub-landing-background">
@@ -25,8 +23,7 @@ class AdminHome extends React.Component {
           <Container centered>
             <Header as="h2">Study Sessions</Header>
             <List divided verticalAlign='middle'>
-              {this.props.sessions.map((session, index)=>
-                  <List.Item key={index}>
+              {this.props.sessions.map((session, index) => <List.Item key={index}>
                     <List.Content floated='right'>
                       <Modal size="mini" trigger={<Button>View Session</Button>} closeIcon>
                         <Modal.Content>
@@ -34,18 +31,15 @@ class AdminHome extends React.Component {
                         </Modal.Content>
                       </Modal>
                     </List.Content>
-                    <List.Content>{'Location: ' + session.location}</List.Content>
-                    <List.Content>{'Date: ' + session.date}</List.Content>
-                  </List.Item>
-              )}
+                    <List.Content>{`Location: ${session.location}`}</List.Content>
+                    <List.Content>{`Date: ${session.date}`}</List.Content>
+                  </List.Item>)}
             </List>
             <Header as="h2">All Users</Header>
             <Grid columns={3}>
-              {this.props.users.map((user, index)=>
-                  <Grid.Column>
-                    <UserAdmin user={user} key={index}/>
-                  </Grid.Column>
-              )}
+              {this.props.users.map((user, index) => <Grid.Column key={index} >
+                <UserAdmin user={user} key={index}/>
+                  </Grid.Column>)}
             </Grid>
           </Container>
         </div>
@@ -68,6 +62,6 @@ export default withTracker(() => {
   return {
     users: Users.find({}).fetch(),
     sessions: Sessions.find({}).fetch(),
-    ready: subscription.ready(),
+    ready: subscription.ready() && userSubscription(),
   };
 })(AdminHome);

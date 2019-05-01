@@ -264,7 +264,6 @@ class ListStudySessions extends React.Component {
 
   handleChange(event, instance) {
     event.preventDefault();
-    console.log(instance.value, this.state);
     this.setState({ choices: instance.value });
   }
 
@@ -280,10 +279,8 @@ class ListStudySessions extends React.Component {
       if (this.state.choices.length === 0) {
         return true;
       }
-      console.log(session.course, this.state.choices);
         return _.contains(this.state.choices, session.course);
     });
-    console.log(sessionsToView, this.state);
     return (
         <div className="manoastudyhub-landing-background">
           <Container>

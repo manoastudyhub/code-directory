@@ -42,11 +42,11 @@ export default class Signin extends React.Component {
     const { from } = this.props.location.state || { from: { pathname: '/' } };
     // if correct authentication, redirect to page instead of login screen
     if (this.state.redirectToReferer) {
-      if(Roles.userIsInRole(Meteor.userId(), 'admin')){
+      if (Roles.userIsInRole(Meteor.userId(), 'admin')) {
         return <Redirect to={'/adminHome'} />;
-      } else {
-        return <Redirect to={'/userPage'}/>;
       }
+        return <Redirect to={'/userPage'}/>;
+
     }
     // Otherwise return the Login form.
     return (

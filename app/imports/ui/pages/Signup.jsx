@@ -721,7 +721,6 @@ export default class Signup extends React.Component {
     // https://medium.freecodecamp.org/react-binding-patterns-5-approaches-for-handling-this-92c651b5af56
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    
   }
 
   /** Update the form controls each time the user interacts with them. */

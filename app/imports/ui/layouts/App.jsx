@@ -9,7 +9,6 @@ import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
 import Calendar from '../pages/FullCalendar';
 import CalendarAdmin from '../pages/FullCalendarAdmin';
-import ListStuff from '../pages/ListStuff';
 import AttendSession from '../pages/Attend';
 import OtherProfile from '../pages/OtherProfile';
 import UserPage from '../pages/UserHome';
@@ -36,7 +35,6 @@ class App extends React.Component {
               <Route exact path="/" component={Landing}/>
               <Route path="/signin" component={Signin}/>
               <Route path="/signup" component={Signup}/>
-              <ProtectedRoute path="/list" component={ListStuff}/>
               <ProtectedRoute path="/userPage" component={UserPage}/>
               <AdminProtectedRoute path="/adminHome" component={AdminHome}/>
               <ProtectedRoute path="/calendar" component={Calendar}/>

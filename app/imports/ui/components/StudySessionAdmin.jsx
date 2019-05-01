@@ -20,8 +20,9 @@ class StudySessionAdmin extends React.Component {
     const example = this.state.example;
     this.setState({ example: !example });
   }
-  deleteSession(){
-    Sessions.remove(this.props.session._id,(error) => (error ?
+
+  deleteSession() {
+    Sessions.remove(this.props.session._id, (error) => (error ?
         Bert.alert({ type: 'danger', message: `Delete failed: ${error.message}` }) :
         Bert.alert({ type: 'success', message: 'Delete succeeded' })));
   }
@@ -54,8 +55,9 @@ class StudySessionAdmin extends React.Component {
                   <Modal size="mini" trigger={<Button basic color='green'>View Attendees</Button>} closeIcon>
                     <Modal.Content>
                       <List>
-                        {this.props.session.attending.map((attendee, index) =>
-                          <List.Item key={index}>{attendee}</List.Item>)
+                        {this.props.session.attending.map(
+                            (attendee, index) => <List.Item key={index}>{attendee}</List.Item>,
+)
                         }
                       </List>
                     </Modal.Content>

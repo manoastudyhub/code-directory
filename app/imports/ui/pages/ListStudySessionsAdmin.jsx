@@ -21,7 +21,8 @@ class ListStudySessionsAdmin extends React.Component {
         <Container>
           <Header as="h2" textAlign="center">List Study Sessions</Header>
           <Card.Group>
-            {this.props.sessions.map((session, index) => <StudySessionAdmin key={index} session={session} sessions={this.props.sessions} />)}
+            {this.props.sessions.map((session, index) => <StudySessionAdmin
+                key={index} session={session} sessions={this.props.sessions} />)}
           </Card.Group>
         </Container>
         </div>
@@ -44,4 +45,3 @@ export default withTracker(() => {
     ready: subscription.ready(),
   };
 })(ListStudySessionsAdmin);
-

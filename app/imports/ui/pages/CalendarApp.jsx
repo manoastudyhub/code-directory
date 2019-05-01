@@ -40,12 +40,10 @@ class CalendarApp extends React.Component {
     // const test = _.map(this.props.sessions, (s) => s.attending);
     // const filteringEvents = _.some(test, function (entry) { return entry.includes('Meteor.user().username'); });
     const filtering = _.filter(this.props.sessions, function (num) { return num.attending.indexOf(Meteor.user().username) > -1; });
-    const events = _.map(filtering, (s) => {
-        return {
+    const events = _.map(filtering, (s) => ({
           title: s.course,
           start: s.date,
-        };
-    });
+        }));
 
     this.setState({
       // update a property

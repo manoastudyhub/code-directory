@@ -2,21 +2,24 @@
 import React from 'react';
 import { Image, Card, List, Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { Users } from '/imports/api/user/user';
+import { Bert } from 'meteor/themeteorchef:bert';
 
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class UserAdmin extends React.Component {
-  constructor(){
+  constructor() {
     super();
     this.deleteUser = this.deleteUser.bind(this);
   }
-  deleteUser(){
-    Users.remove(this.props.user._id,(error) => (error ?
+
+  deleteUser() {
+    Users.remove(this.props.user._id, (error) => (error ?
         Bert.alert({ type: 'danger', message: `Delete failed: ${error.message}` }) :
         Bert.alert({ type: 'success', message: 'Delete succeeded' })));
   }
+
   render() {
     return (
         <Card>

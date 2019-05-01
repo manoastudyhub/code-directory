@@ -24,7 +24,8 @@ class EditProfile extends React.Component {
       firstName, lastName, major, classStanding, subject1, subject2, subject3, image,
         description, tutor } }, (error) => (error ?
         Bert.alert({ type: 'danger', message: `Update failed: ${error.message}` }) :
-        Bert.alert({ type: 'success', message: 'Update succeeded' })));
+        Bert.alert({ type: 'success', message: 'Update succeeded' })
+    ));
   }
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
