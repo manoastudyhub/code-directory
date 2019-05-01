@@ -2,43 +2,81 @@
   "defaultAccounts": [
     { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
     { "email": "john@foo.com", "password": "changeme" },
-    { "email": "james@foo.com", "password": "changeme" }
+    { "email": "james@foo.com", "password": "changeme" },
+    { "email": "kristy@foo.com", "password": "changeme" },
+    { "email": "matt@foo.com", "password": "changeme" }
   ],
 
-  "defaultStudents": [
+  "defaultUsers": [
     {
       "firstName": "John",
       "lastName": "Foo",
-      "username": "john@foo.com",
-      "classStanding": "Junior",
+      "owner": "john@foo.com",
+      "classStanding": "Senior",
+      "image": "https://semantic-ui.com/images/avatar2/large/kristy.png",
+      "major": "Accounting (ACC)",
+      "description": "My name is John",
+      "subjects": ["Accounting (ACC)", "Biology (BIOL)", ""],
+      "subject1": "Accounting (ACC)",
+      "subject2": "Biology (BIOL)",
+      "subject3": "",
+      "tutor": false
+    },
+    {
+      "firstName": "Admin",
+      "lastName": "Foo",
+      "owner": "admin@foo.com",
+      "classStanding": "Senior",
       "image": "https://react.semantic-ui.com/images/avatar/large/steve.jpg",
-      "major": "Computer Science",
-      "subjects": "Software Engineering",
-      "description": "My name is John"
-    }
-  ],
-  "defaultUsers": [
+      "major": "Information and Computer Sciences (ICS)",
+      "description": "I am an admin",
+      "subjects": ["Information and Computer Sciences (ICS)", "", ""],
+      "subject1": "Information and Computer Sciences (ICS)",
+      "subject2": "",
+      "subject3": "",
+      "tutor": true
+    },
     {
       "firstName": "Kristy",
       "lastName": "Foo",
-      "username": "john@foo.com",
+      "owner": "kristy@foo.com",
       "classStanding": "Senior",
       "image": "https://semantic-ui.com/images/avatar2/large/kristy.png",
-      "major": "Biology",
-      "tutor": "true",
-      "subjects": "Biology, Chemistry",
-      "description": "My name is Kristy"
+      "major": "Biology (BIOL)",
+      "description": "My name is Kristy",
+      "subjects": ["Biology (BIOL)", "", ""],
+      "subject1": "Biology (BIOL)",
+      "subject2": "",
+      "subject3": "",
+      "tutor": true
+    },
+    {
+      "firstName": "James",
+      "lastName": "Foo",
+      "owner": "James@foo.com",
+      "classStanding": "Freshman",
+      "image": "https://semantic-ui.com/images/avatar2/large/matthew.png",
+      "major": "Accounting (ACC)",
+      "description": "My name is James",
+      "subjects": ["Accounting (ACC)", "Biology (BIOL)", ""],
+      "subject1": "Accounting (ACC)",
+      "subject2": "Biology (BIOL)",
+      "subject3": "",
+      "tutor": false
     },
     {
       "firstName": "Matt",
       "lastName": "Foo",
-      "username": "john@foo.com",
+      "owner": "matt@foo.com",
       "classStanding": "Freshman",
       "image": "https://semantic-ui.com/images/avatar2/large/matthew.png",
-      "major": "Math",
-      "tutor": "true",
-      "subjects": "Calculus, Software Engineering",
-      "description": "My name is Matt"
+      "major": "Philosophy (PHIL)",
+      "description": "My name is Matt",
+      "subjects": ["Philosophy (PHIL)", "Psychology (PSY)", ""],
+      "subject1": "Philosophy (PHIL)",
+      "subject2": "Psychology (PSY)",
+      "subject3": "",
+      "tutor": false
     }
   ],
 
@@ -61,7 +99,7 @@
       "date": "4/9/19",
       "location": "Campus Center",
       "owner": "john@foo.com",
-      "attending": ["john@foo.com", "james@foo.com"],
+      "attending": ["john@foo.com", "james@foo.com", "johnd@foo.com", "jamesf@foo.com", "johna@foo.com", "jamesb@foo.com", "johne@foo.com", "jamesq@foo.com", "johhn@foo.com", "jamejs@foo.com"],
       "description": "A study group for those in the Biol 340 class to study for the final.",
       "course": "Biology (BIOL)",
       "courseNum": "340"

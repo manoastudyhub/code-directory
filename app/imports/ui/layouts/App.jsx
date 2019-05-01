@@ -8,10 +8,12 @@ import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
 import Calendar from '../pages/FullCalendar';
+import CalendarAdmin from '../pages/FullCalendarAdmin';
 import ListStuff from '../pages/ListStuff';
 import AttendSession from '../pages/Attend';
 import UserPage from '../pages/UserHome';
 import Profile from '../pages/UserProfile';
+import EditProfile from '../pages/EditProfile';
 import AddSession from '../pages/AddStudySesh';
 import EditStudy from '../pages/EditStudy';
 import StudySession from '../pages/ListStudySessions';
@@ -37,11 +39,13 @@ class App extends React.Component {
               <ProtectedRoute path="/userPage" component={UserPage}/>
               <AdminProtectedRoute path="/adminHome" component={AdminHome}/>
               <ProtectedRoute path="/calendar" component={Calendar}/>
+              <AdminProtectedRoute path="/calendarAdmin" component={CalendarAdmin}/>
               <ProtectedRoute path="/profile" component={Profile}/>
               <ProtectedRoute path="/studyList" component={StudySession}/>
               <ProtectedRoute path="/add" component={AddSession}/>
               <ProtectedRoute path="/attend/:_id" component={AttendSession}/>
               <ProtectedRoute path="/edit/:_id" component={EditStudy}/>
+              <ProtectedRoute path="/editprofile/:_id" component={EditProfile}/>
               <AdminProtectedRoute path="/adminStudyList" component={ListStudySessionsAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <Route component={NotFound}/>

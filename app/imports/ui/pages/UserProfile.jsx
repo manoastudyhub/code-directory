@@ -3,7 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { Container, Loader } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
-import { Students } from '../../api/student/student';
+import { Users } from '../../api/user/user';
 import Profile from '/imports/ui/components/Profile';
 
 
@@ -18,7 +18,7 @@ class UserProfile extends React.Component {
     return (
         <div className="manoastudyhub-landing-background">
         <Container>
-          {this.props.students.map((student, index) => <Profile key={index} student={student}/>)}
+          {this.props.users.map((user, index) => <Profile key={index} user={user}/>)}
         </Container>
         </div>
     );
@@ -26,17 +26,16 @@ class UserProfile extends React.Component {
 }
 /** Require an array of Student documents in the props. */
 UserProfile.propTypes = {
-  students: PropTypes.array.isRequired,
+  users: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Student documents.
-  const subscription = Meteor.subscribe('Students');
+  const subscription = Meteor.subscribe('Users');
   return {
-    students: Students.find({}).fetch(),
+    users: Users.find({}).fetch(),
     ready: (subscription.ready()),
   };
 })(UserProfile);
-
