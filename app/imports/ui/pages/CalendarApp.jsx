@@ -14,15 +14,14 @@ import ErrorsField from 'uniforms-semantic/ErrorsField';
 import { Bert } from 'meteor/themeteorchef:bert';
 import { Sessions, SessionSchema } from '/imports/api/session/session';
 import { withTracker } from 'meteor/react-meteor-data';
-import { Grid, Segment, Header } from 'semantic-ui-react';
+import { Grid, Segment, Header, Form } from 'semantic-ui-react';
+import SelectField from 'uniforms-semantic/SelectField';
 
 
 // must manually import the stylesheets for each plugin
 import '@fullcalendar/core/main.css';
 import '@fullcalendar/daygrid/main.css';
 import '@fullcalendar/timegrid/main.css';
-import { Form } from 'semantic-ui-react/dist/commonjs/collections/Form';
-import SelectField from './AddStudySesh';
 
 
 /** Uses FullCalendar's react component https://fullcalendar.io/docs/react */
@@ -60,12 +59,12 @@ class CalendarApp extends React.Component {
 
   /** On submit, insert the data. */
   submit(data) {
-    const { firstName, lastName, location, description, course } = data;
+    const { firstName, lastName, location, description, course, courseNum } = data;
     const { date } = this.state;
     const owner = Meteor.user().username;
     const attending = Meteor.user().username;
     Sessions.insert({
-      firstName, lastName, date, location, description, attending, course, owner,
+      firstName, lastName, date, location, description, attending, course, courseNum, owner,
     }, this.insertCallback);
   }
 
