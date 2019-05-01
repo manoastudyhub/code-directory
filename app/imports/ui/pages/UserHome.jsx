@@ -8,17 +8,15 @@ import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import 'semantic-ui-css/semantic.min.css';
 import { NavLink } from 'react-router-dom';
-import { Container, Header, Icon, Button, Grid, List, Divider, Item, Loader, Modal, Image } from 'semantic-ui-react';
-import { Accounts } from 'meteor/accounts-base';
-
+import { Container, Header, Icon, Button, Grid, List, Divider, Item, Loader, Modal } from 'semantic-ui-react';
 
 function subjectMatch(arr1, arr2) {
   return arr2.some(function (v) {
     return arr1.indexOf(v) >= 0;
   });
 }
-function returnCurrentUser(userArray, user){
-  return(userArray.find(x => x.owner == user))
+function returnCurrentUser(userArray, user) {
+  return (userArray.find(x => x.owner === user));
 }
 class UserHome extends React.Component {
 
@@ -54,8 +52,7 @@ class UserHome extends React.Component {
           <Container>
             <Header as="h2">Your Study Sessions</Header>
             <List divided verticalAlign='middle'>
-              {this.props.sessions.map((session, index) =>
-                  (session.attending.indexOf(this.props.currentUser) > -1) ? (
+              {this.props.sessions.map((session, index) => ((session.attending.indexOf(this.props.currentUser) > -1) ? (
                       <List.Item key={index}>
                         <List.Content floated='right'>
                           <Modal size="mini" trigger={<Button>View Session</Button>} closeIcon>
@@ -64,18 +61,18 @@ class UserHome extends React.Component {
                             </Modal.Content>
                           </Modal>
                         </List.Content>
-                        <List.Content>{'Course: ' + session.course}</List.Content>
-                        <List.Content>{'Location: ' + session.location}</List.Content>
-                        <List.Content>{'Date: ' + session.date}</List.Content>
-                      </List.Item>) : ('')
-              )
+                        <List.Content>{`Course: ${session.course}`}</List.Content>
+                        <List.Content>{`Location: ${session.location}`}</List.Content>
+                        <List.Content>{`Date: ${session.date}`}</List.Content>
+                      </List.Item>) : ('')))
               }
             </List>
             <Header as="h2">Study Sessions With Your Major or Subjects</Header>
             <List divided verticalAlign='middle'>
-              {this.props.sessions.map((session, index) =>
-                  ((session.course == (returnCurrentUser(this.props.users, this.props.currentUser)).major) ||
-                      ((subjectMatch(session.course, (returnCurrentUser(this.props.users, this.props.currentUser)).subjects))))? (
+              {this.props.sessions.map((session, index) => (((session.course === (
+                  returnCurrentUser(this.props.users, this.props.currentUser)).major) ||
+                      ((subjectMatch(session.course, (returnCurrentUser(this.props.users,
+                          this.props.currentUser)).subjects)))) ? (
                       <List.Item key={index}>
                         <List.Content floated='right'>
                           <Modal size="mini" trigger={<Button>View Session</Button>} closeIcon>
@@ -84,35 +81,31 @@ class UserHome extends React.Component {
                             </Modal.Content>
                           </Modal>
                         </List.Content>
-                        <List.Content>{'Course: ' + session.course}</List.Content>
-                        <List.Content>{'Location: ' + session.location}</List.Content>
-                        <List.Content>{'Date: ' + session.date}</List.Content>
-                      </List.Item>) : ('')
-              )
+                        <List.Content>{`Course: ${session.course}`}</List.Content>
+                        <List.Content>{`Location: ${session.location}`}</List.Content>
+                        <List.Content>{`Date: ${session.date}`}</List.Content>
+                      </List.Item>) : ('')))
               }
             </List>
             <Header as="h2">Other Students With The Same Major</Header>
             <Grid columns={3}>
-              {
-                this.props.users.map((user, index) =>
-                    ((user.owner != this.props.currentUser) && ((returnCurrentUser(this.props.users, this.props.currentUser)).major == user.major)) ? (
+              {this.props.users.map((user, index) => (((user.owner !== this.props.currentUser) && (
+                  (returnCurrentUser(this.props.users, this.props.currentUser)).major === user.major)) ? (
                         <Grid.Column key={index}>
                           <User user={user} key={index}/>
                         </Grid.Column>
-                    ) : ('')
-                )
+                    ) : ('')))
               }
             </Grid>
             <Header as="h2">Other Students Taking Similar Subjects</Header>
             <Grid columns={3}>
-              {
-                this.props.users.map((user, index) => 
-                  ((user.owner!=this.props.currentUser) && (subjectMatch((returnCurrentUser(this.props.users, this.props.currentUser)).subjects, user.subjects))) ? (
+              {this.props.users.map((user, index) => (((user.owner !== this.props.currentUser) &&
+                  (subjectMatch((returnCurrentUser(this.props.users, this.props.currentUser)).subjects,
+                      user.subjects))) ? (
                       <Grid.Column key={index}>
                         <User user={user} key={index} />
                       </Grid.Column>
-                  ) : ('')
-                )
+                  ) : ('')))
               }
             </Grid>
           </Container>
@@ -136,7 +129,7 @@ export default withTracker(() => {
   return {
     users: Users.find({}).fetch(),
     sessions: Sessions.find({}).fetch(),
-    ready: subscription.ready(),
+    ready: subscription.ready() && useSubscription.ready(),
     currentUser: Meteor.user() ? Meteor.user().username : '',
   };
 })(UserHome);

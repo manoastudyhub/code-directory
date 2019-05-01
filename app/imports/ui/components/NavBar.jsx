@@ -14,13 +14,13 @@ class NavBar extends React.Component {
       <Menu style={menuStyle} attached="top" borderless inverted>
       {
         (!this.props.currentUser) ? (
-        [<Menu.Item as={NavLink} activeClassName="" exact to="/">
+        [<Menu.Item as={NavLink} activeClassName="" exact to="/" key='home'>
           <Header inverted as='h1'>Manoa Study Hub</Header>
         </Menu.Item>]
         ) : ''
       }
         {(this.props.currentUser && (!(Roles.userIsInRole(Meteor.userId(), 'admin')))) ? (
-            [ <Menu.Item as={NavLink} activeClassName="" exact to="/userPage" key='userHome'>
+            [<Menu.Item as={NavLink} activeClassName="" exact to="/userPage" key='userHome'>
                 <Header inverted as='h1'>Manoa Study Hub</Header>
               </Menu.Item>,
               <Menu.Item as={NavLink} activeClassName="active" exact to="/profile" key='profile'>Profile</Menu.Item>,
@@ -31,11 +31,13 @@ class NavBar extends React.Component {
                          exact to="/add" key='add'>Add Study Session</Menu.Item>]
         ) : ''}
         {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-            [ <Menu.Item as={NavLink} activeClassName="" exact to="/adminHome" key='adminHome'>
+            [<Menu.Item as={NavLink} activeClassName="" exact to="/adminHome" key='adminHome'>
                 <Header inverted as='h1'>Manoa Study Hub</Header>
               </Menu.Item>,
-              <Menu.Item as={NavLink} activeClassName="active" exact to="/calendarAdmin" key='calendarAdmin'>Calendar</Menu.Item>,
-              <Menu.Item as={NavLink} activeClassName="active" exact to="/adminStudyList" key='adminList'>Admin Study List</Menu.Item>,
+              <Menu.Item as={NavLink} activeClassName="active" exact to="/calendarAdmin"
+                         key='calendarAdmin'>Calendar</Menu.Item>,
+              <Menu.Item as={NavLink} activeClassName="active" exact to="/adminStudyList"
+                         key='adminList'>Admin Study List</Menu.Item>,
               <Menu.Item as={NavLink} activeClassName="active"
                          exact to="/add" key='add'>Add Study Session</Menu.Item>]
         ) : ''}

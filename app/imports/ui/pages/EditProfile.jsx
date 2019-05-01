@@ -42,7 +42,7 @@ class EditProfile extends React.Component {
             <AutoForm schema={UserSchema} onSubmit={this.submit} model={this.props.doc}>
               <Segment>
                 <TextField name='image'/>
-                <TextField name='major'/>
+                <SelectField name='major'/>
                 <SelectField name='classStanding'/>
                 <SelectField name='subject1' label={'Subject 1'}/>
                 <SelectField name='subject2' label={'Subject 2'}/>

@@ -1,33 +1,15 @@
 {
   "defaultAccounts": [
-<<<<<<< HEAD
     { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
     { "email": "john@foo.com", "password": "changeme" },
-    { "email": "james@foo.com", "password": "changeme" }
-=======
-    { "email": "admin@foo.com", "password": "changeme", "role": "admin", "profile": {} },
-    { "email": "john@foo.com", "password": "changeme", "profile": {} },
-    { "email": "kristy@foo.com", "password": "changeme", "profile": {} },
-    { "email": "matt@foo.com", "password": "changeme", "profile": {} }
+    { "email": "james@foo.com", "password": "changeme" },
+    { "email": "kristy@foo.com", "password": "changeme" },
+    { "email": "matt@foo.com", "password": "changeme" }
   ],
 
-  "defaultStudents": [
-    {
-      "firstName": "John",
-      "lastName": "Foo",
-      "username": "john@foo.com",
-      "classStanding": "Junior",
-      "image": "https://react.semantic-ui.com/images/avatar/large/steve.jpg",
-      "major": "Computer Science",
-      "subjects": "Software Engineering",
-      "description": "My name is John"
-    }
->>>>>>> issue-36
-  ],
   "defaultUsers": [
     {
       "firstName": "John",
-<<<<<<< HEAD
       "lastName": "Foo",
       "owner": "john@foo.com",
       "classStanding": "Senior",
@@ -39,14 +21,6 @@
       "subject2": "Biology (BIOL)",
       "subject3": "",
       "tutor": false
-=======
-      "lastName": "Foo",
-      "owner": "john@foo.com",
-      "classStanding": "Junior",
-      "image": "https://react.semantic-ui.com/images/avatar/large/steve.jpg",
-      "major": "Physics",
-      "description": "My name is John",
-      "tutor": false
     },
     {
       "firstName": "Admin",
@@ -54,8 +28,12 @@
       "owner": "admin@foo.com",
       "classStanding": "Senior",
       "image": "https://react.semantic-ui.com/images/avatar/large/steve.jpg",
-      "major": "Computer Science",
+      "major": "Information and Computer Sciences (ICS)",
       "description": "I am an admin",
+      "subjects": ["Information and Computer Sciences (ICS)", "", ""],
+      "subject1": "Information and Computer Sciences (ICS)",
+      "subject2": "",
+      "subject3": "",
       "tutor": true
     },
     {
@@ -64,15 +42,17 @@
       "owner": "kristy@foo.com",
       "classStanding": "Senior",
       "image": "https://semantic-ui.com/images/avatar2/large/kristy.png",
-      "major": "Biology",
+      "major": "Biology (BIOL)",
       "description": "My name is Kristy",
+      "subjects": ["Biology (BIOL)", "", ""],
+      "subject1": "Biology (BIOL)",
+      "subject2": "",
+      "subject3": "",
       "tutor": true
->>>>>>> issue-36
     },
     {
       "firstName": "James",
       "lastName": "Foo",
-<<<<<<< HEAD
       "owner": "James@foo.com",
       "classStanding": "Freshman",
       "image": "https://semantic-ui.com/images/avatar2/large/matthew.png",
@@ -82,13 +62,20 @@
       "subject1": "Accounting (ACC)",
       "subject2": "Biology (BIOL)",
       "subject3": "",
-=======
+      "tutor": false
+    },
+    {
+      "firstName": "Matt",
+      "lastName": "Foo",
       "owner": "matt@foo.com",
       "classStanding": "Freshman",
       "image": "https://semantic-ui.com/images/avatar2/large/matthew.png",
-      "major": "Math",
+      "major": "Philosophy (PHIL)",
       "description": "My name is Matt",
->>>>>>> issue-36
+      "subjects": ["Philosophy (PHIL)", "Psychology (PSY)", ""],
+      "subject1": "Philosophy (PHIL)",
+      "subject2": "Psychology (PSY)",
+      "subject3": "",
       "tutor": false
     }
   ],
