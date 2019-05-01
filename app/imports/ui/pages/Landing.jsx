@@ -4,10 +4,9 @@ import { Grid, Image, Header, Icon } from 'semantic-ui-react';
 /** A simple static component to render some text for the landing page. */
 class Landing extends React.Component {
   render() {
-    const size = { height: '400px', paddingTop: '100px' };
     return (
         <div className="manoastudyhub-landing-background">
-          <Grid container verticalAlign="middle" style={size}>
+          <Grid container verticalAlign="middle">
             <Grid.Row columns="two">
               <Grid.Column>
                 <Image src="/images/image1.png"/>

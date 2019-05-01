@@ -20,8 +20,8 @@ class Attend extends React.Component {
   submit(data) {
     const { _id } = data;
     Sessions.update(_id, { $addToSet: { attending: Meteor.user().username } }, (error) => (error ?
-        Bert.alert({ type: 'danger', message: `Update failed: ${error.message}` }) :
-        Bert.alert({ type: 'success', message: 'Update succeeded1' })));
+        Bert.alert({ type: 'danger', message: `Attending failed: ${error.message}` }) :
+        Bert.alert({ type: 'success', message: 'Attending successful' })));
   }
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
