@@ -21,6 +21,8 @@ import { Grid, Segment, Header } from 'semantic-ui-react';
 import '@fullcalendar/core/main.css';
 import '@fullcalendar/daygrid/main.css';
 import '@fullcalendar/timegrid/main.css';
+import { Form } from 'semantic-ui-react/dist/commonjs/collections/Form';
+import SelectField from './AddStudySesh';
 
 
 /** Uses FullCalendar's react component https://fullcalendar.io/docs/react */
@@ -79,16 +81,21 @@ class CalendarApp extends React.Component {
                 <Header as="h2" textAlign="center">Add Study Session</Header>
                 <AutoForm ref={(ref) => { this.formRef = ref; }} schema={SessionSchema} onSubmit={this.submit}>
                   <Segment>
-                    <TextField name='firstName'/>
-                    <TextField name='lastName'/>
+                    <Form.Group widths='equal'>
+                      <TextField name='firstName'/>
+                      <TextField name='lastName'/>
+                    </Form.Group>
                     <TextField name='location'/>
                     <LongTextField name='description'/>
-                    <TextField name='course'/>
+                    <Form.Group widths='equal'>
+                      <SelectField name='course'/>
+                      <TextField name='courseNum'/>
+                    </Form.Group>
                     <SubmitField value='Submit'/>
                     <ErrorsField/>
                     <HiddenField name='owner' value='fakeuser@foo.com'/>
-                    <HiddenField name='date' value='04/26/2019'/>
-                    <HiddenField name='attending' value='attended'/>
+                    <HiddenField name='attending' value='username'/>
+                    <HiddenField name='date' value='4/26/2019'/>
                   </Segment>
                 </AutoForm>
               </Grid.Column>
