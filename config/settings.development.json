@@ -53,7 +53,7 @@
     {
       "firstName": "James",
       "lastName": "Foo",
-      "owner": "James@foo.com",
+      "owner": "james@foo.com",
       "classStanding": "Freshman",
       "image": "https://semantic-ui.com/images/avatar2/large/matthew.png",
       "major": "Accounting (ACC)",
